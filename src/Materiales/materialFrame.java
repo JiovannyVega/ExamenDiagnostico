@@ -1,5 +1,6 @@
 package Materiales;
 
+import LogIn.Menu.Menu;
 import com.sun.java.swing.plaf.motif.MotifComboBoxUI;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -7,21 +8,21 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.plaf.basic.BasicTableUI;
 
 public class materialFrame extends javax.swing.JFrame {
-    
+
     int xMouse, yMouse;
-    
+
     public materialFrame() {
         //inicialización de componentes
         initComponents();
-        
+
         // UI de componentes cambiada
         type_combobox.setUI(new MotifComboBoxUI());
         tablaActualizar.setUI(new BasicTableUI());
         tabbed_pane.setUI(new BasicTabbedPaneUI());
-        
+
         // centra la ventana al medio (850, 450)
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -456,13 +457,13 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void exit_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        exit_button.setBackground(new Color(32,0,0));
+        exit_button.setBackground(new Color(32, 0, 0));
     }//GEN-LAST:event_exit_buttonMouseEntered
 
     private void exit_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        exit_button.setBackground(new Color(62,0,0));
+        exit_button.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_exit_buttonMouseExited
 
     private void minimize_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseClicked
@@ -472,29 +473,29 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void minimize_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        minimize_button.setBackground(new Color(32,0,0));
+        minimize_button.setBackground(new Color(32, 0, 0));
     }//GEN-LAST:event_minimize_buttonMouseEntered
 
     private void minimize_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        minimize_button.setBackground(new Color(62,0,0));
+        minimize_button.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_minimize_buttonMouseExited
 
     private void search_materialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseClicked
         // Método para buscar material
-        
+
     }//GEN-LAST:event_search_materialMouseClicked
 
     private void search_materialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        search_material.setBackground(new Color(62,0,0));
+        search_material.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_search_materialMouseEntered
 
     private void search_materialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        search_material.setBackground(new Color(92,0,0));
+        search_material.setBackground(new Color(92, 0, 0));
     }//GEN-LAST:event_search_materialMouseExited
 
     private void update_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseClicked
@@ -503,42 +504,43 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void update_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        update_button.setBackground(new Color(62,0,0));
+        update_button.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_update_buttonMouseEntered
 
     private void update_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        update_button.setBackground(new Color(92,0,0));
+        update_button.setBackground(new Color(92, 0, 0));
     }//GEN-LAST:event_update_buttonMouseExited
 
     private void search_material2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseClicked
         // Método para buscar material
-        
+
     }//GEN-LAST:event_search_material2MouseClicked
 
     private void search_material2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        search_material2.setBackground(new Color(62,0,0));
+        search_material2.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_search_material2MouseEntered
 
     private void search_material2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        search_material2.setBackground(new Color(92,0,0));
+        search_material2.setBackground(new Color(92, 0, 0));
     }//GEN-LAST:event_search_material2MouseExited
 
     private void return_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseClicked
-        /*
-        * Método para regresar a ventana anterior
-        */
+
+        LogIn.Menu.Menu menu = new Menu();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_return_buttonMouseClicked
 
     private void return_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseEntered
         // Método que cambia el icono del label cuando el cursor entra
         String iconFileName = return_button.getIcon().toString();
-        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/" ) + 1);
-        if("flecha-izquierda50x50.png".equals(fileName)) {
+        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/") + 1);
+        if ("flecha-izquierda50x50.png".equals(fileName)) {
             return_button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iflecha-izquierda50x50.png")));
         }
     }//GEN-LAST:event_return_buttonMouseEntered
@@ -546,8 +548,8 @@ public class materialFrame extends javax.swing.JFrame {
     private void return_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseExited
         // Método que cambia el icono del label cuando el cursor sale
         String iconFileName = return_button.getIcon().toString();
-        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/" ) + 1);
-        if("iflecha-izquierda50x50.png".equals(fileName)) {
+        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/") + 1);
+        if ("iflecha-izquierda50x50.png".equals(fileName)) {
             return_button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda50x50.png")));
         }
     }//GEN-LAST:event_return_buttonMouseExited
@@ -558,13 +560,13 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void send_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        send_button.setBackground(new Color(62,0,0));
+        send_button.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_send_buttonMouseEntered
 
     private void send_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        send_button.setBackground(new Color(92,0,0));
+        send_button.setBackground(new Color(92, 0, 0));
     }//GEN-LAST:event_send_buttonMouseExited
 
     private void title_barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_title_barMousePressed
