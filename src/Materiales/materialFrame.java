@@ -1,6 +1,6 @@
 package Materiales;
 
-import LogIn.Menu.Menu;
+import Log.Menu;
 import com.sun.java.swing.plaf.motif.MotifComboBoxUI;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -560,7 +560,7 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void return_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseClicked
 
-        LogIn.Menu.Menu menu = new Menu();
+        Log.Menu menu = new Menu();
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_return_buttonMouseClicked

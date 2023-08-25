@@ -1,10 +1,12 @@
 package Metodos;
 
-import static LogIn.Menu.Login1.con;
+import static Log.Login1.con;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Map;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -61,7 +63,7 @@ public class Conexion {
 
     public static void mostrarNC(JTextField txtNumControl) {
         try {
-            Statement st = LogIn.Menu.Login1.con.createStatement();
+            Statement st = Log.Login1.con.createStatement();
             int max = 0;
             ResultSet rs = st.executeQuery("select NumControl from alumno");
             while (rs.next()) {
@@ -73,9 +75,22 @@ public class Conexion {
         }
     }
     
+    public static void llenadoMaterial(Vector<String> Material/*, Map<String, Integer> map*/) {
+        try {
+            Statement st = Log.Login1.con.createStatement();
+            ResultSet rs = st.executeQuery("select * from Material");
+            while (rs.next()) {
+                Material.addElement(rs.getString("Nombre"));
+                //map.put(rs.getString("Nombre"), rs.getInt("id"));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     public static void registrarPrestamo(String Nombre, String fInicio, String Matricula, int idMaterial, int Cantidad) {
         try {
-            Statement st = LogIn.Menu.Login1.con.createStatement();
+            Statement st = Log.Login1.con.createStatement();
             PreparedStatement ps = con.prepareStatement("insert into Historial values (0, ?, ?, ?, ?, ?, ?, ?)");
             ps.setString(1, fInicio);
             ps.setString(2, null);
@@ -92,7 +107,7 @@ public class Conexion {
     
     public static void registrarMaterial(String Nombre, String Tipo, String Marca, String Modelo, String Serie, int cantidad, String Ubicacion, String Especificaciones) {
         try {
-            Statement st = LogIn.Menu.Login1.con.createStatement();
+            Statement st = Log.Login1.con.createStatement();
             PreparedStatement ps = con.prepareStatement("insert into Material values (?,?,?,?,?,?,?,?,?)");
             ps.setInt(1, 0);
             ps.setString(2, Nombre);
@@ -113,7 +128,7 @@ public class Conexion {
     
     public static void mostrarMaterial(DefaultTableModel modelo) {
         try {
-            Statement st = LogIn.Menu.Login1.con.createStatement();
+            Statement st = Log.Login1.con.createStatement();
             ResultSet rs = st.executeQuery("select * from Material");
             String [] Datos = new String[9];
             while (rs.next()) {
@@ -129,7 +144,7 @@ public class Conexion {
     
     public static void actualizarMaterial(String Nombre, String Tipo, String Marca, String Modelo, String Serie, int cantidad, String Ubicacion, String Especificaciones, int id) {
         try {
-            Statement st = LogIn.Menu.Login1.con.createStatement();
+            Statement st = Log.Login1.con.createStatement();
             PreparedStatement ps = con.prepareStatement("update Material set Nombre = ?, Tipo = ?, Marca = ?, Modelo = ?, Serie = ?, Cantidad = ?, Ubicacion = ?, Especificaciones = ? where (id = " + id + ");");
             ps.setString(1, Nombre);
             ps.setString(2, Tipo);

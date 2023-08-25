@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LogIn.Menu;
+package Log;
 
 import Materiales.materialFrame;
 import Prestamos.prestamosFrame;
@@ -67,7 +67,6 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(92, 0, 0));
-        setPreferredSize(new java.awt.Dimension(800, 440));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tec.PNG"))); // NOI18N

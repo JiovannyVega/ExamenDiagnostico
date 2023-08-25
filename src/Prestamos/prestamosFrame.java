@@ -1,23 +1,39 @@
 package Prestamos;
 
-import LogIn.Menu.Menu;
+import Log.Menu;
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 public class prestamosFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form materialFrame
-     */
+    private Vector<String> Material = new Vector<String>(0);
+    private Map<String, Integer> map = new HashMap<String, Integer>(0);
+    
     public prestamosFrame() {
         //inicialización de componentes
         initComponents();
 
         // centra la ventana al medio (850, 450)
         this.setLocationRelativeTo(null);
+        Metodos.Conexion.llenadoMaterial(Material);
+        cargarSugerencias();
+        cargarTipos();
 
     }
+    
+    public void cargarSugerencias() {
+        AutoCompleteDecorator.decorate(comboMaterial);
+    }
 
+    public void cargarTipos() {
+        comboMaterial.setModel(new DefaultComboBoxModel<>(Material));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,9 +63,9 @@ public class prestamosFrame extends javax.swing.JFrame {
         Fecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        Material = new javax.swing.JTextField();
         Cantidad = new javax.swing.JSpinner();
         btnSolicitar = new javax.swing.JButton();
+        comboMaterial = new javax.swing.JComboBox<>();
         update_tab = new javax.swing.JPanel();
         fill_label1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -229,11 +245,6 @@ public class prestamosFrame extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Nombre del material");
         add_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
-
-        Material.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        Material.setForeground(new java.awt.Color(171, 0, 51));
-        Material.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(Material, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 135, -1));
         add_tab.add(Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
 
         btnSolicitar.setText("Solicitar");
@@ -243,6 +254,9 @@ public class prestamosFrame extends javax.swing.JFrame {
             }
         });
         add_tab.add(btnSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
+
+        comboMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add_tab.add(comboMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 290, -1));
 
         tabbed_pane.addTab("Prestamos", add_tab);
 
@@ -607,7 +621,7 @@ public class prestamosFrame extends javax.swing.JFrame {
 
     private void return_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseClicked
 
-        LogIn.Menu.Menu menu = new Menu();
+        Log.Menu menu = new Menu();
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_return_buttonMouseClicked
@@ -642,13 +656,13 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Button_Login1;
     private javax.swing.JSpinner Cantidad;
     private javax.swing.JTextField Fecha;
-    private javax.swing.JTextField Material;
     private javax.swing.JTextField Matricula;
     private javax.swing.JTextField Nombre;
     private javax.swing.JPanel Panel_Iniciar;
     private javax.swing.JPanel Panel_Iniciar1;
     private javax.swing.JPanel add_tab;
     private javax.swing.JButton btnSolicitar;
+    private javax.swing.JComboBox<String> comboMaterial;
     private javax.swing.JLabel exit_button;
     private javax.swing.JLabel fill_label;
     private javax.swing.JLabel fill_label1;

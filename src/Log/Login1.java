@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LogIn.Menu;
+package Log;
 
 import Metodos.Conexion;
 import java.awt.Color;
@@ -234,7 +234,7 @@ public class Login1 extends javax.swing.JFrame {
                 if (Conexion.login(st, txtUsuario.getText(), txtPassword.getText())) {
                     //Admin admin = new Admin();
                     //admin.setVisible(true);
-                    LogIn.Menu.Menu menu = new Menu();
+                    Log.Menu menu = new Menu();
                     menu.setVisible(true);
                     this.dispose();
                 }
