@@ -75,13 +75,13 @@ public class Conexion {
         }
     }
     
-    public static void llenadoMaterial(Vector<String> Material/*, Map<String, Integer> map*/) {
+    public static void llenadoMaterial(Vector<String> Material, Map<String, Integer> map) {
         try {
             Statement st = Log.Login1.con.createStatement();
             ResultSet rs = st.executeQuery("select * from Material");
             while (rs.next()) {
                 Material.addElement(rs.getString("Nombre"));
-                //map.put(rs.getString("Nombre"), rs.getInt("id"));
+                map.put(rs.getString("Nombre"), rs.getInt("id"));
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -100,6 +100,7 @@ public class Conexion {
             ps.setInt(6, Cantidad);
             ps.setInt(7, 0);
             ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Material prestado con exito");
         } catch (Exception e) {
             System.out.println(e);
         }

@@ -20,7 +20,7 @@ public class prestamosFrame extends javax.swing.JFrame {
 
         // centra la ventana al medio (850, 450)
         this.setLocationRelativeTo(null);
-        Metodos.Conexion.llenadoMaterial(Material);
+        Metodos.Conexion.llenadoMaterial(Material, map);
         cargarSugerencias();
         cargarTipos();
 
@@ -645,7 +645,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_return_buttonMouseExited
 
     private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
-        Metodos.Conexion.registrarPrestamo(Nombre.getText(), Fecha.getText(), Matricula.getText(), 1, (Integer)Cantidad.getValue());
+        Metodos.Conexion.registrarPrestamo(Nombre.getText(), Fecha.getText(), Matricula.getText(), map.get(comboMaterial.getSelectedItem().toString()), (Integer)Cantidad.getValue());
     }//GEN-LAST:event_btnSolicitarActionPerformed
 
     /**
