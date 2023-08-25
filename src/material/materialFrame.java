@@ -51,7 +51,16 @@ public class materialFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         tipo_combobox = new javax.swing.JComboBox<>();
         update_tab = new javax.swing.JPanel();
+        consBusquedaAct = new javax.swing.JTextField();
+        btnActBusqueda = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaActualizar = new javax.swing.JTable();
+        actualizarInfo = new javax.swing.JButton();
         search_tab = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaMateriales = new javax.swing.JTable();
+        consBusqueda = new javax.swing.JTextField();
+        btnConsBusqueda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Material");
@@ -113,97 +122,85 @@ public class materialFrame extends javax.swing.JFrame {
         tabbed_pane.setBackground(new java.awt.Color(171, 0, 51));
         tabbed_pane.setOpaque(true);
 
-        add_tab.setBackground(new java.awt.Color(255, 255, 255));
+        add_tab.setBackground(new java.awt.Color(204, 204, 204));
         add_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fill_label.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        fill_label.setForeground(new java.awt.Color(0, 0, 0));
         fill_label.setText("Rellena los campos para agregar un material");
         add_tab.add(fill_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nombre");
         add_tab.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(171, 0, 51));
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         add_tab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 135, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Cantidad");
         add_tab.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(171, 0, 51));
         jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 135, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Marca");
         add_tab.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(171, 0, 51));
         jTextField3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 135, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Modelo");
         add_tab.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(171, 0, 51));
         jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 135, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Serie");
         add_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
         jTextField5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(171, 0, 51));
         jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 135, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Ubicación");
         add_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
         jTextField6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(171, 0, 51));
         jTextField6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 135, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Especificación");
         add_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
         jTextField7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(171, 0, 51));
         jTextField7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 135, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Tipo");
         add_tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
-        tipo_combobox.setBackground(new java.awt.Color(255, 255, 255));
         tipo_combobox.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tipo_combobox.setForeground(new java.awt.Color(92, 0, 0));
         tipo_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Opcion 1", "Opcion 2", "Opcion 3" }));
@@ -212,33 +209,125 @@ public class materialFrame extends javax.swing.JFrame {
 
         tabbed_pane.addTab("Agregar", add_tab);
 
-        update_tab.setBackground(new java.awt.Color(255, 255, 255));
+        update_tab.setBackground(new java.awt.Color(204, 204, 204));
         update_tab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        consBusquedaAct.setForeground(new java.awt.Color(153, 153, 153));
+        consBusquedaAct.setText("Buscar.....");
+        consBusquedaAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consBusquedaActActionPerformed(evt);
+            }
+        });
+
+        btnActBusqueda.setText("Buscar material");
+
+        tablaActualizar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NOMBRE", "CANTIDAD", "MARCA", "MODELO", "SERIE", "UBICACION", "ESPECIFICACION", "TIPO"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaActualizar);
+        if (tablaActualizar.getColumnModel().getColumnCount() > 0) {
+            tablaActualizar.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablaActualizar.getColumnModel().getColumn(1).setPreferredWidth(100);
+        }
+
+        actualizarInfo.setText("Actualizar");
 
         javax.swing.GroupLayout update_tabLayout = new javax.swing.GroupLayout(update_tab);
         update_tab.setLayout(update_tabLayout);
         update_tabLayout.setHorizontalGroup(
             update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addGroup(update_tabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, update_tabLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, update_tabLayout.createSequentialGroup()
+                                .addComponent(consBusquedaAct, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnActBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(actualizarInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         update_tabLayout.setVerticalGroup(
             update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, update_tabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(consBusquedaAct, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActBusqueda))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(actualizarInfo)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         tabbed_pane.addTab("Actualizar", update_tab);
 
-        search_tab.setBackground(new java.awt.Color(255, 0, 0));
+        search_tab.setBackground(new java.awt.Color(204, 204, 204));
+
+        tablaMateriales.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NOMBRE", "CANTIDAD", "MARCA", "MODELO", "SERIE", "UBICACION", "ESPECIFICACION", "TIPO"
+            }
+        ));
+        jScrollPane2.setViewportView(tablaMateriales);
+        if (tablaMateriales.getColumnModel().getColumnCount() > 0) {
+            tablaMateriales.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablaMateriales.getColumnModel().getColumn(1).setPreferredWidth(100);
+        }
+
+        consBusqueda.setForeground(new java.awt.Color(153, 153, 153));
+        consBusqueda.setText("Buscar.....");
+        consBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consBusquedaActionPerformed(evt);
+            }
+        });
+
+        btnConsBusqueda.setText("Buscar material");
 
         javax.swing.GroupLayout search_tabLayout = new javax.swing.GroupLayout(search_tab);
         search_tab.setLayout(search_tabLayout);
         search_tabLayout.setHorizontalGroup(
             search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addGroup(search_tabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(search_tabLayout.createSequentialGroup()
+                        .addComponent(consBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnConsBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         search_tabLayout.setVerticalGroup(
             search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, search_tabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(consBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsBusqueda))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tabbed_pane.addTab("Consultar", search_tab);
@@ -281,6 +370,18 @@ public class materialFrame extends javax.swing.JFrame {
         minimize_button.setBackground(new Color(92,0,0));
     }//GEN-LAST:event_minimize_buttonMouseExited
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void consBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consBusquedaActionPerformed
+
+    private void consBusquedaActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consBusquedaActActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consBusquedaActActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -317,8 +418,13 @@ public class materialFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizarInfo;
     private javax.swing.JPanel add_tab;
     private javax.swing.JButton back_button;
+    private javax.swing.JButton btnActBusqueda;
+    private javax.swing.JButton btnConsBusqueda;
+    private javax.swing.JTextField consBusqueda;
+    private javax.swing.JTextField consBusquedaAct;
     private javax.swing.JLabel exit_button;
     private javax.swing.JLabel fill_label;
     private javax.swing.JLabel jLabel1;
@@ -329,6 +435,8 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -340,6 +448,8 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JLabel minimize_button;
     private javax.swing.JPanel search_tab;
     private javax.swing.JTabbedPane tabbed_pane;
+    private javax.swing.JTable tablaActualizar;
+    private javax.swing.JTable tablaMateriales;
     private javax.swing.JComboBox<String> tipo_combobox;
     private javax.swing.JPanel top_panel;
     private javax.swing.JPanel update_tab;
