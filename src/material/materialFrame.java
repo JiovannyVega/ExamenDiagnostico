@@ -2,17 +2,19 @@ package material;
 
 import com.sun.java.swing.plaf.motif.MotifComboBoxUI;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.plaf.basic.BasicTableUI;
 
 public class materialFrame extends javax.swing.JFrame {
-    /**
-     * Creates new form materialFrame
-     */
+    
+    int xMouse, yMouse;
+    
     public materialFrame() {
         //inicialización de componentes
         initComponents();
         
+        // UI de componentes cambiada
         type_combobox.setUI(new MotifComboBoxUI());
         tablaActualizar.setUI(new BasicTableUI());
         tabbed_pane.setUI(new BasicTabbedPaneUI());
@@ -37,6 +39,8 @@ public class materialFrame extends javax.swing.JFrame {
         top_panel = new javax.swing.JPanel();
         materiales_label = new javax.swing.JLabel();
         left_panel = new javax.swing.JPanel();
+        itsm_label = new javax.swing.JLabel();
+        return_button = new javax.swing.JLabel();
         tabbed_pane = new javax.swing.JTabbedPane();
         add_tab = new javax.swing.JPanel();
         fill_label = new javax.swing.JLabel();
@@ -56,6 +60,7 @@ public class materialFrame extends javax.swing.JFrame {
         specs_tf = new javax.swing.JTextField();
         type_label = new javax.swing.JLabel();
         type_combobox = new javax.swing.JComboBox<>();
+        send_button = new javax.swing.JLabel();
         update_tab = new javax.swing.JPanel();
         consBusquedaAct = new javax.swing.JTextField();
         search_material = new javax.swing.JLabel();
@@ -74,14 +79,25 @@ public class materialFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        title_bar.setBackground(new java.awt.Color(92, 0, 0));
+        title_bar.setBackground(new java.awt.Color(62, 0, 0));
+        title_bar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                title_barMouseDragged(evt);
+            }
+        });
+        title_bar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                title_barMousePressed(evt);
+            }
+        });
         title_bar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        exit_button.setBackground(new java.awt.Color(92, 0, 0));
+        exit_button.setBackground(new java.awt.Color(62, 0, 0));
         exit_button.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
         exit_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exit_button.setText("X");
+        exit_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exit_button.setOpaque(true);
         exit_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,11 +112,12 @@ public class materialFrame extends javax.swing.JFrame {
         });
         title_bar.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 20));
 
-        minimize_button.setBackground(new java.awt.Color(92, 0, 0));
+        minimize_button.setBackground(new java.awt.Color(62, 0, 0));
         minimize_button.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         minimize_button.setForeground(new java.awt.Color(255, 255, 255));
         minimize_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimize_button.setText("-");
+        minimize_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimize_button.setOpaque(true);
         minimize_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,6 +147,25 @@ public class materialFrame extends javax.swing.JFrame {
 
         left_panel.setBackground(new java.awt.Color(92, 0, 0));
         left_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        itsm_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/itsm.png"))); // NOI18N
+        left_panel.add(itsm_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 150, 320, 150));
+
+        return_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda50x50.png"))); // NOI18N
+        return_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        return_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                return_buttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                return_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                return_buttonMouseExited(evt);
+            }
+        });
+        left_panel.add(return_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 50));
+
         getContentPane().add(left_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 320, 430));
 
         tabbed_pane.setBackground(new java.awt.Color(171, 0, 51));
@@ -235,6 +271,26 @@ public class materialFrame extends javax.swing.JFrame {
         type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Opcion 1", "Opcion 2", "Opcion 3" }));
         type_combobox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(type_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 218, 135, 25));
+
+        send_button.setBackground(new java.awt.Color(92, 0, 0));
+        send_button.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        send_button.setForeground(new java.awt.Color(255, 255, 255));
+        send_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        send_button.setText("Enviar");
+        send_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        send_button.setOpaque(true);
+        send_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                send_buttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                send_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                send_buttonMouseExited(evt);
+            }
+        });
+        add_tab.add(send_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 120, 30));
 
         tabbed_pane.addTab("Agregar", add_tab);
 
@@ -408,13 +464,13 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void exit_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        exit_button.setBackground(new Color(62,0,0));
+        exit_button.setBackground(new Color(32,0,0));
     }//GEN-LAST:event_exit_buttonMouseEntered
 
     private void exit_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        exit_button.setBackground(new Color(92,0,0));
+        exit_button.setBackground(new Color(62,0,0));
     }//GEN-LAST:event_exit_buttonMouseExited
 
     private void minimize_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseClicked
@@ -424,13 +480,13 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void minimize_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        minimize_button.setBackground(new Color(62,0,0));
+        minimize_button.setBackground(new Color(32,0,0));
     }//GEN-LAST:event_minimize_buttonMouseEntered
 
     private void minimize_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        minimize_button.setBackground(new Color(92,0,0));
+        minimize_button.setBackground(new Color(62,0,0));
     }//GEN-LAST:event_minimize_buttonMouseExited
 
     private void search_materialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseClicked
@@ -439,10 +495,13 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_search_materialMouseClicked
 
     private void search_materialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseEntered
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
         search_material.setBackground(new Color(62,0,0));
     }//GEN-LAST:event_search_materialMouseEntered
 
     private void search_materialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseExited
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
         search_material.setBackground(new Color(92,0,0));
     }//GEN-LAST:event_search_materialMouseExited
 
@@ -451,24 +510,83 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_update_buttonMouseClicked
 
     private void update_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseEntered
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
         update_button.setBackground(new Color(62,0,0));
     }//GEN-LAST:event_update_buttonMouseEntered
 
     private void update_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseExited
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
         update_button.setBackground(new Color(92,0,0));
     }//GEN-LAST:event_update_buttonMouseExited
 
     private void search_material2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseClicked
-        // TODO add your handling code here:
+        // Método para buscar material
+        
     }//GEN-LAST:event_search_material2MouseClicked
 
     private void search_material2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseEntered
-        // TODO add your handling code here:
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
+        search_material2.setBackground(new Color(62,0,0));
     }//GEN-LAST:event_search_material2MouseEntered
 
     private void search_material2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseExited
-        // TODO add your handling code here:
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
+        search_material2.setBackground(new Color(92,0,0));
     }//GEN-LAST:event_search_material2MouseExited
+
+    private void return_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseClicked
+        /*
+        * Método para regresar a ventana anterior
+        */
+    }//GEN-LAST:event_return_buttonMouseClicked
+
+    private void return_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseEntered
+        // Método que cambia el icono del label cuando el cursor entra
+        String iconFileName = return_button.getIcon().toString();
+        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/" ) + 1);
+        if("flecha-izquierda50x50.png".equals(fileName)) {
+            return_button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iflecha-izquierda50x50.png")));
+        }
+    }//GEN-LAST:event_return_buttonMouseEntered
+
+    private void return_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseExited
+        // Método que cambia el icono del label cuando el cursor sale
+        String iconFileName = return_button.getIcon().toString();
+        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/" ) + 1);
+        if("iflecha-izquierda50x50.png".equals(fileName)) {
+            return_button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda50x50.png")));
+        }
+    }//GEN-LAST:event_return_buttonMouseExited
+
+    private void send_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseClicked
+        // Método para enviar material que se desea agregar
+    }//GEN-LAST:event_send_buttonMouseClicked
+
+    private void send_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseEntered
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
+        send_button.setBackground(new Color(62,0,0));
+    }//GEN-LAST:event_send_buttonMouseEntered
+
+    private void send_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseExited
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
+        send_button.setBackground(new Color(92,0,0));
+    }//GEN-LAST:event_send_buttonMouseExited
+
+    private void title_barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_title_barMousePressed
+        // Método para obtener la posición del mouse
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_title_barMousePressed
+
+    private void title_barMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_title_barMouseDragged
+        // Método para poder dar la sensación de arrastrar el frame
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_title_barMouseDragged
 
     /**
      * @param args the command line arguments
@@ -513,6 +631,7 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JTextField consBusquedaAct2;
     private javax.swing.JLabel exit_button;
     private javax.swing.JLabel fill_label;
+    private javax.swing.JLabel itsm_label;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel left_panel;
@@ -526,9 +645,11 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JTextField name_tf;
     private javax.swing.JLabel quantity_label;
     private javax.swing.JTextField quantity_tf;
+    private javax.swing.JLabel return_button;
     private javax.swing.JLabel search_material;
     private javax.swing.JLabel search_material2;
     private javax.swing.JPanel search_tab;
+    private javax.swing.JLabel send_button;
     private javax.swing.JLabel series_label;
     private javax.swing.JTextField series_tf;
     private javax.swing.JLabel specs_label;
