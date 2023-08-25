@@ -1,6 +1,6 @@
 package Metodos;
 
-import static Pantallas.Login.con;
+import static LogIn.Menu.Login1.con;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,9 +16,9 @@ public class Conexion {
         int cont = 0;
 
         try {
-            ResultSet rs = st.executeQuery("select * from usuario");
+            ResultSet rs = st.executeQuery("select * from Admin");
             while (rs.next()) {
-                if (nombre.equals(rs.getString("NomUsuario")) && contrseña.equals(rs.getString("Contraseña"))) {
+                if (nombre.equals(rs.getString("Nombre")) && contrseña.equals(rs.getString("Contraseña"))) {
                     cont++;
                     return true;
                 }
@@ -60,7 +60,7 @@ public class Conexion {
 
     public static void mostrarNC(JTextField txtNumControl) {
         try {
-            Statement st = Pantallas.Login.con.createStatement();
+            Statement st = LogIn.Menu.Login1.con.createStatement();
             int max = 0;
             ResultSet rs = st.executeQuery("select NumControl from alumno");
             while (rs.next()) {

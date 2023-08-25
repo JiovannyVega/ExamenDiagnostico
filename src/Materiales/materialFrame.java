@@ -1,4 +1,4 @@
-package material;
+package Materiales;
 
 import com.sun.java.swing.plaf.motif.MotifComboBoxUI;
 import java.awt.Color;
@@ -97,7 +97,7 @@ public class materialFrame extends javax.swing.JFrame {
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
         exit_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exit_button.setText("X");
-        exit_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exit_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         exit_button.setOpaque(true);
         exit_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,7 +117,7 @@ public class materialFrame extends javax.swing.JFrame {
         minimize_button.setForeground(new java.awt.Color(255, 255, 255));
         minimize_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimize_button.setText("-");
-        minimize_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimize_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         minimize_button.setOpaque(true);
         minimize_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -152,7 +152,7 @@ public class materialFrame extends javax.swing.JFrame {
         left_panel.add(itsm_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 150, 320, 150));
 
         return_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda50x50.png"))); // NOI18N
-        return_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        return_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         return_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 return_buttonMouseClicked(evt);
@@ -188,7 +188,6 @@ public class materialFrame extends javax.swing.JFrame {
         name_label.setText("Nombre");
         add_tab.add(name_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        name_tf.setBackground(new java.awt.Color(255, 255, 255));
         name_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         name_tf.setForeground(new java.awt.Color(188, 149, 92));
         name_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
@@ -199,7 +198,6 @@ public class materialFrame extends javax.swing.JFrame {
         quantity_label.setText("Cantidad");
         add_tab.add(quantity_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        quantity_tf.setBackground(new java.awt.Color(255, 255, 255));
         quantity_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         quantity_tf.setForeground(new java.awt.Color(188, 149, 92));
         quantity_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
@@ -210,7 +208,6 @@ public class materialFrame extends javax.swing.JFrame {
         brand_label.setText("Marca");
         add_tab.add(brand_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
-        brand_tf.setBackground(new java.awt.Color(255, 255, 255));
         brand_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         brand_tf.setForeground(new java.awt.Color(188, 149, 92));
         brand_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
@@ -221,7 +218,6 @@ public class materialFrame extends javax.swing.JFrame {
         model_label.setText("Modelo");
         add_tab.add(model_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        model_tf.setBackground(new java.awt.Color(255, 255, 255));
         model_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         model_tf.setForeground(new java.awt.Color(188, 149, 92));
         model_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
@@ -232,7 +228,6 @@ public class materialFrame extends javax.swing.JFrame {
         series_label.setText("Serie");
         add_tab.add(series_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
-        series_tf.setBackground(new java.awt.Color(255, 255, 255));
         series_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         series_tf.setForeground(new java.awt.Color(188, 149, 92));
         series_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
@@ -243,7 +238,6 @@ public class materialFrame extends javax.swing.JFrame {
         location_label.setText("Ubicación");
         add_tab.add(location_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
-        location_tf.setBackground(new java.awt.Color(255, 255, 255));
         location_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         location_tf.setForeground(new java.awt.Color(188, 149, 92));
         location_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
@@ -254,7 +248,6 @@ public class materialFrame extends javax.swing.JFrame {
         specs_label.setText("Especificación");
         add_tab.add(specs_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        specs_tf.setBackground(new java.awt.Color(255, 255, 255));
         specs_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         specs_tf.setForeground(new java.awt.Color(188, 149, 92));
         specs_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
@@ -265,7 +258,6 @@ public class materialFrame extends javax.swing.JFrame {
         type_label.setText("Tipo");
         add_tab.add(type_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
-        type_combobox.setBackground(new java.awt.Color(255, 255, 255));
         type_combobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         type_combobox.setForeground(new java.awt.Color(171, 0, 51));
         type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Opcion 1", "Opcion 2", "Opcion 3" }));
@@ -277,7 +269,7 @@ public class materialFrame extends javax.swing.JFrame {
         send_button.setForeground(new java.awt.Color(255, 255, 255));
         send_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         send_button.setText("Enviar");
-        send_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        send_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         send_button.setOpaque(true);
         send_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -309,7 +301,7 @@ public class materialFrame extends javax.swing.JFrame {
         search_material.setForeground(new java.awt.Color(255, 255, 255));
         search_material.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         search_material.setText("Buscar material");
-        search_material.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        search_material.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         search_material.setOpaque(true);
         search_material.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -329,7 +321,7 @@ public class materialFrame extends javax.swing.JFrame {
         update_button.setForeground(new java.awt.Color(255, 255, 255));
         update_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         update_button.setText("Actualizar");
-        update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         update_button.setOpaque(true);
         update_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -397,7 +389,7 @@ public class materialFrame extends javax.swing.JFrame {
         search_material2.setForeground(new java.awt.Color(255, 255, 255));
         search_material2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         search_material2.setText("Buscar material");
-        search_material2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        search_material2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         search_material2.setOpaque(true);
         search_material2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -591,37 +583,6 @@ public class materialFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new materialFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add_tab;
