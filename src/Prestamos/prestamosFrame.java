@@ -47,11 +47,16 @@ public class prestamosFrame extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        tipo_combobox = new javax.swing.JComboBox<>();
         update_tab = new javax.swing.JPanel();
+        fill_label1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         search_tab = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
 
@@ -119,11 +124,11 @@ public class prestamosFrame extends javax.swing.JFrame {
         add_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fill_label.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        fill_label.setText("Rellena los campos para agregar un material");
+        fill_label.setText("Rellena los campos para solicitar un prestamo");
         add_tab.add(fill_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Nombre");
+        jLabel1.setText("Nombre del Alumno");
         add_tab.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jTextField1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -132,7 +137,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         add_tab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 135, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Cantidad");
+        jLabel2.setText("Matricula");
         add_tab.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         jTextField2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -141,7 +146,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         add_tab.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 135, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Marca");
+        jLabel3.setText("Fecha");
         add_tab.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
         jTextField3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -150,7 +155,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         add_tab.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 135, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Modelo");
+        jLabel4.setText("Cantidad");
         add_tab.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jTextField4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -159,7 +164,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         add_tab.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 135, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Serie");
+        jLabel5.setText("Nombre del material");
         add_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
         jTextField5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -168,7 +173,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         add_tab.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 135, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Ubicación");
+        jLabel6.setText("Código del Material");
         add_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
         jTextField6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -176,39 +181,91 @@ public class prestamosFrame extends javax.swing.JFrame {
         jTextField6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 135, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Especificación");
-        add_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-
-        jTextField7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 135, -1));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Tipo");
-        add_tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
-
-        tipo_combobox.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tipo_combobox.setForeground(new java.awt.Color(92, 0, 0));
-        tipo_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Opcion 1", "Opcion 2", "Opcion 3" }));
-        tipo_combobox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(tipo_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 135, 25));
-
         tabbed_pane.addTab("Prestamos", add_tab);
 
         update_tab.setBackground(new java.awt.Color(255, 255, 255));
         update_tab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        fill_label1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        fill_label1.setText("Registrar ");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("Nombre");
+
+        jTextField8.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jTextField8.setForeground(new java.awt.Color(171, 0, 51));
+        jTextField8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel10.setText("Matricula");
+
+        jTextField9.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(171, 0, 51));
+        jTextField9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel11.setText("Número de prestamo");
+
+        jTextField10.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jTextField10.setForeground(new java.awt.Color(171, 0, 51));
+        jTextField10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+
+        jLabel12.setText("Fecha de inicio");
+
+        jLabel13.setText("Fecha de fin");
+
         javax.swing.GroupLayout update_tabLayout = new javax.swing.GroupLayout(update_tab);
         update_tab.setLayout(update_tabLayout);
         update_tabLayout.setHorizontalGroup(
             update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addGroup(update_tabLayout.createSequentialGroup()
+                .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(update_tabLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(fill_label1))
+                    .addGroup(update_tabLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(update_tabLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel12))
+                            .addGroup(update_tabLayout.createSequentialGroup()
+                                .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 253, Short.MAX_VALUE))
+                            .addGroup(update_tabLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel13)
+                                .addGap(11, 11, 11)))))
+                .addGap(93, 93, 93))
         );
         update_tabLayout.setVerticalGroup(
             update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGroup(update_tabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fill_label1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel12))
+                .addGap(0, 0, 0)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel13))
+                .addGap(0, 0, 0)
+                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel11)
+                .addGap(0, 0, 0)
+                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
 
         tabbed_pane.addTab("Registrar", update_tab);
@@ -320,27 +377,32 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JButton back_button;
     private javax.swing.JLabel exit_button;
     private javax.swing.JLabel fill_label;
+    private javax.swing.JLabel fill_label1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel left_panel;
     private javax.swing.JLabel minimize_button;
     private javax.swing.JPanel search_tab;
     private javax.swing.JTabbedPane tabbed_pane;
-    private javax.swing.JComboBox<String> tipo_combobox;
     private javax.swing.JPanel top_panel;
     private javax.swing.JPanel update_tab;
     // End of variables declaration//GEN-END:variables
