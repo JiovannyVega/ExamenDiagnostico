@@ -142,6 +142,26 @@ public class Conexion {
             System.out.println(e);
         }
     }
+    public static void mostrarPrestamos(DefaultTableModel modelo, Map<String, Integer> map){
+        try {
+            Statement st = Log.Login1.con.createStatement();
+            Statement st2 = Log.Login1.con.createStatement();
+            ResultSet rs = st.executeQuery("select * from Historial");
+            String [] Datos = new String[8];
+            while (rs.next()) {
+                for (int i = 0; i < 8; i++) {
+                    Datos[i] = rs.getString(i + 1);
+                    System.out.println(Datos[i] + " " + i);
+                }
+                ResultSet rs2 = st2.executeQuery("select Nombre from Material where id = " + Datos[5]);
+                rs2.next();
+                Datos[5] = rs2.getString(1);
+                modelo.addRow(Datos);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
     public static void actualizarMaterial(String Nombre, String Tipo, String Marca, String Modelo, String Serie, int cantidad, String Ubicacion, String Especificaciones, int id) {
         try {
