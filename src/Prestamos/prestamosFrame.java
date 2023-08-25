@@ -32,6 +32,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         minimize_button = new javax.swing.JLabel();
         left_panel = new javax.swing.JPanel();
         back_button = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         tabbed_pane = new javax.swing.JTabbedPane();
         add_tab = new javax.swing.JPanel();
         fill_label = new javax.swing.JLabel();
@@ -114,6 +115,9 @@ public class prestamosFrame extends javax.swing.JFrame {
 
         back_button.setText("Regresar");
         left_panel.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 348, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ITSM_Logo_Oficial.png"))); // NOI18N
+        left_panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 350, 110));
 
         getContentPane().add(left_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 320, 430));
 
@@ -388,6 +392,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
