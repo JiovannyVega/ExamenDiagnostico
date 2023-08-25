@@ -6,10 +6,12 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.plaf.basic.BasicTableUI;
+import javax.swing.table.DefaultTableModel;
 
 public class materialFrame extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    DefaultTableModel modelo = new DefaultTableModel();
 
     public materialFrame() {
         //inicialización de componentes
@@ -22,6 +24,17 @@ public class materialFrame extends javax.swing.JFrame {
 
         // centra la ventana al medio (850, 450)
         this.setLocationRelativeTo(null);
+
+        modelo.addColumn("id");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Marca");
+        modelo.addColumn("Modelo");
+        modelo.addColumn("Serie");
+        modelo.addColumn("cantidad");
+        modelo.addColumn("Ubicacion");
+        modelo.addColumn("Especificaciones");
+        Metodos.Conexion.mostrarMaterial("", modelo);
 
     }
 
@@ -72,7 +85,7 @@ public class materialFrame extends javax.swing.JFrame {
         consBusquedaAct2 = new javax.swing.JTextField();
         search_material2 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tablaActualizar2 = new javax.swing.JTable();
+        tablaConsultar = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Material");
@@ -403,39 +416,19 @@ public class materialFrame extends javax.swing.JFrame {
         });
         search_tab.add(search_material2, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 12, 120, 25));
 
-        tablaActualizar2.setBackground(new java.awt.Color(171, 0, 51));
-        tablaActualizar2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
-        tablaActualizar2.setForeground(new java.awt.Color(255, 255, 255));
-        tablaActualizar2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "NOMBRE", "CANTIDAD", "MARCA", "MODELO", "SERIE", "UBICACION", "ESPECIFICACION", "TIPO"
-            }
-        ));
-        tablaActualizar2.setGridColor(new java.awt.Color(188, 149, 92));
-        tablaActualizar2.setSelectionBackground(new java.awt.Color(92, 0, 0));
-        tablaActualizar2.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        tablaActualizar2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane5.setViewportView(tablaActualizar2);
-        if (tablaActualizar2.getColumnModel().getColumnCount() > 0) {
-            tablaActualizar2.getColumnModel().getColumn(0).setPreferredWidth(30);
-            tablaActualizar2.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tablaConsultar.setBackground(new java.awt.Color(171, 0, 51));
+        tablaConsultar.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        tablaConsultar.setForeground(new java.awt.Color(255, 255, 255));
+        tablaConsultar.setModel(modelo
+        );
+        tablaConsultar.setGridColor(new java.awt.Color(188, 149, 92));
+        tablaConsultar.setSelectionBackground(new java.awt.Color(92, 0, 0));
+        tablaConsultar.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tablaConsultar.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(tablaConsultar);
+        if (tablaConsultar.getColumnModel().getColumnCount() > 0) {
+            tablaConsultar.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablaConsultar.getColumnModel().getColumn(1).setPreferredWidth(100);
         }
 
         search_tab.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 43, 499, 240));
@@ -512,8 +505,7 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_update_buttonMouseExited
 
     private void search_material2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseClicked
-        // Método para buscar material
-
+        Metodos.Conexion.mostrarMaterial("", modelo);
     }//GEN-LAST:event_search_material2MouseClicked
 
     private void search_material2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseEntered
@@ -554,7 +546,7 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void send_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseClicked
         String Nombre = name_tf.getText(), Tipo = type_combobox.getSelectedItem().toString(), Marca = brand_tf.getText(), Modelo = model_tf.getText(), Serie = series_tf.getText(), Ubicacion = location_tf.getText(), Especificaciones = specs_tf.getText();
-        int Cantidad = (Integer)cantidad_tf.getValue();
+        int Cantidad = (Integer) cantidad_tf.getValue();
         Metodos.Conexion.registrarMaterial(Nombre, Tipo, Marca, Modelo, Serie, Cantidad, Ubicacion, Especificaciones);
     }//GEN-LAST:event_send_buttonMouseClicked
 
@@ -619,7 +611,7 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JTextField specs_tf;
     private javax.swing.JTabbedPane tabbed_pane;
     private javax.swing.JTable tablaActualizar;
-    private javax.swing.JTable tablaActualizar2;
+    private javax.swing.JTable tablaConsultar;
     private javax.swing.JPanel title_bar;
     private javax.swing.JPanel top_panel;
     private javax.swing.JComboBox<String> type_combobox;
