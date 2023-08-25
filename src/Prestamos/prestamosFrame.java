@@ -31,8 +31,14 @@ public class prestamosFrame extends javax.swing.JFrame {
         exit_button = new javax.swing.JLabel();
         minimize_button = new javax.swing.JLabel();
         left_panel = new javax.swing.JPanel();
-        back_button = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        Panel_Iniciar = new javax.swing.JPanel();
+        Panel_Iniciar1 = new javax.swing.JPanel();
+        Button_Login1 = new javax.swing.JLabel();
+        Panel_Iniciar2 = new javax.swing.JPanel();
+        Panel_Iniciar3 = new javax.swing.JPanel();
+        Button_Login2 = new javax.swing.JLabel();
+        Button_Login = new javax.swing.JLabel();
         tabbed_pane = new javax.swing.JTabbedPane();
         add_tab = new javax.swing.JPanel();
         fill_label = new javax.swing.JLabel();
@@ -113,15 +119,99 @@ public class prestamosFrame extends javax.swing.JFrame {
         left_panel.setBackground(new java.awt.Color(92, 0, 0));
         left_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        back_button.setText("Regresar");
-        left_panel.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 348, -1, -1));
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ITSM_Logo_Oficial.png"))); // NOI18N
-        left_panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 350, 110));
+        left_panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 350, 110));
+
+        Panel_Iniciar.setBackground(new java.awt.Color(51, 51, 51));
+        Panel_Iniciar.setToolTipText("");
+        Panel_Iniciar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Panel_Iniciar1.setBackground(new java.awt.Color(51, 51, 51));
+        Panel_Iniciar1.setToolTipText("");
+        Panel_Iniciar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Button_Login1.setBackground(new java.awt.Color(51, 51, 51));
+        Button_Login1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        Button_Login1.setForeground(new java.awt.Color(204, 204, 204));
+        Button_Login1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Login1.setText("Iniciar sesión");
+        Button_Login1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Login1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_Login1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_Login1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_Login1MouseExited(evt);
+            }
+        });
+        Panel_Iniciar1.add(Button_Login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 270, 40));
+
+        Panel_Iniciar.add(Panel_Iniciar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 270, 40));
+
+        left_panel.add(Panel_Iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 270, 40));
+
+        Panel_Iniciar2.setBackground(new java.awt.Color(196, 159, 121));
+        Panel_Iniciar2.setToolTipText("");
+        Panel_Iniciar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Panel_Iniciar2MouseExited(evt);
+            }
+        });
+        Panel_Iniciar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Panel_Iniciar3.setBackground(new java.awt.Color(51, 51, 51));
+        Panel_Iniciar3.setToolTipText("");
+        Panel_Iniciar3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Button_Login2.setBackground(new java.awt.Color(51, 51, 51));
+        Button_Login2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        Button_Login2.setForeground(new java.awt.Color(204, 204, 204));
+        Button_Login2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Login2.setText("Iniciar sesión");
+        Button_Login2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Login2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_Login2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_Login2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_Login2MouseExited(evt);
+            }
+        });
+        Panel_Iniciar3.add(Button_Login2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 270, 40));
+
+        Panel_Iniciar2.add(Panel_Iniciar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 270, 40));
+
+        Button_Login.setBackground(new java.awt.Color(255, 0, 0));
+        Button_Login.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        Button_Login.setForeground(new java.awt.Color(153, 0, 0));
+        Button_Login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Button_Login.setText("Regresar");
+        Button_Login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Button_Login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button_LoginMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Button_LoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Button_LoginMouseExited(evt);
+            }
+        });
+        Panel_Iniciar2.add(Button_Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 40));
+
+        left_panel.add(Panel_Iniciar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 270, 40));
 
         getContentPane().add(left_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 320, 430));
 
         tabbed_pane.setBackground(new java.awt.Color(171, 0, 51));
+        tabbed_pane.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tabbed_pane.setOpaque(true);
 
         add_tab.setBackground(new java.awt.Color(255, 255, 255));
@@ -269,7 +359,7 @@ public class prestamosFrame extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(0, 0, 0)
                 .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         tabbed_pane.addTab("Registrar", update_tab);
@@ -284,7 +374,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         );
         search_tabLayout.setVerticalGroup(
             search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         tabbed_pane.addTab("Historial", search_tab);
@@ -297,7 +387,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
 
         tabbed_pane.addTab("Activos", jPanel1);
@@ -340,6 +430,50 @@ public class prestamosFrame extends javax.swing.JFrame {
         minimize_button.setBackground(new Color(92,0,0));
     }//GEN-LAST:event_minimize_buttonMouseExited
 
+    private void Button_LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LoginMouseClicked
+        if (MouseEvent.BUTTON1 == evt.getButton()) {
+            ingresar();
+        }
+    }//GEN-LAST:event_Button_LoginMouseClicked
+
+    private void Button_LoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LoginMouseEntered
+        Panel_Iniciar.setBackground(new Color(0, 204, 102));
+        Button_Login.setForeground(Color.black);
+    }//GEN-LAST:event_Button_LoginMouseEntered
+
+    private void Button_LoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_LoginMouseExited
+        Panel_Iniciar.setBackground(new Color(51, 51, 51));
+        Button_Login.setForeground(new Color(204, 0, 0));
+    }//GEN-LAST:event_Button_LoginMouseExited
+
+    private void Button_Login1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_Login1MouseClicked
+
+    private void Button_Login1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_Login1MouseEntered
+
+    private void Button_Login1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_Login1MouseExited
+
+    private void Button_Login2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_Login2MouseClicked
+
+    private void Button_Login2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_Login2MouseEntered
+
+    private void Button_Login2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button_Login2MouseExited
+
+    private void Panel_Iniciar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Panel_Iniciar2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Panel_Iniciar2MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -377,8 +511,14 @@ public class prestamosFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Button_Login;
+    private javax.swing.JLabel Button_Login1;
+    private javax.swing.JLabel Button_Login2;
+    private javax.swing.JPanel Panel_Iniciar;
+    private javax.swing.JPanel Panel_Iniciar1;
+    private javax.swing.JPanel Panel_Iniciar2;
+    private javax.swing.JPanel Panel_Iniciar3;
     private javax.swing.JPanel add_tab;
-    private javax.swing.JButton back_button;
     private javax.swing.JLabel exit_button;
     private javax.swing.JLabel fill_label;
     private javax.swing.JLabel fill_label1;
