@@ -73,6 +73,15 @@ public class Conexion {
         }
     }
     
+    public static void registrarPrestamo(String Nombre, String fInicio, String fFin, String Matricula, String idMaterial, int Cantidad) {
+        try {
+            Statement st = LogIn.Menu.Login1.con.createStatement();
+            PreparedStatement ps = con.prepareStatement("insert into Historial values (?, ?, ?, ?, ?, ?, ?, ?)");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     public static void registrarMaterial(String Nombre, String Tipo, String Marca, String Modelo, String Serie, int cantidad, String Ubicacion, String Especificaciones) {
         try {
             Statement st = LogIn.Menu.Login1.con.createStatement();

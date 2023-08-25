@@ -41,17 +41,16 @@ public class prestamosFrame extends javax.swing.JFrame {
         add_tab = new javax.swing.JPanel();
         fill_label = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Nombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Matricula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Fecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        Material = new javax.swing.JTextField();
+        Cantidad = new javax.swing.JSpinner();
+        btnSolicitar = new javax.swing.JButton();
         update_tab = new javax.swing.JPanel();
         fill_label1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -201,55 +200,50 @@ public class prestamosFrame extends javax.swing.JFrame {
         jLabel1.setText("Nombre del Alumno");
         add_tab.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 135, -1));
+        Nombre.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Nombre.setForeground(new java.awt.Color(171, 0, 51));
+        Nombre.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 135, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Matricula");
         add_tab.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 135, -1));
+        Matricula.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Matricula.setForeground(new java.awt.Color(171, 0, 51));
+        Matricula.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(Matricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 135, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Fecha");
         add_tab.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
-        jTextField3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 135, -1));
+        Fecha.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Fecha.setForeground(new java.awt.Color(171, 0, 51));
+        Fecha.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 135, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Cantidad");
         add_tab.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        jTextField4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 135, -1));
-
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Nombre del material");
         add_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
-        jTextField5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 135, -1));
+        Material.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        Material.setForeground(new java.awt.Color(171, 0, 51));
+        Material.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(Material, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 135, -1));
+        add_tab.add(Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 120, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Código del Material");
-        add_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
-
-        jTextField6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 135, -1));
+        btnSolicitar.setText("Solicitar");
+        btnSolicitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSolicitarActionPerformed(evt);
+            }
+        });
+        add_tab.add(btnSolicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         tabbed_pane.addTab("Prestamos", add_tab);
 
@@ -637,15 +631,25 @@ public class prestamosFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_return_buttonMouseExited
 
+    private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSolicitarActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Button_Login1;
+    private javax.swing.JSpinner Cantidad;
+    private javax.swing.JTextField Fecha;
+    private javax.swing.JTextField Material;
+    private javax.swing.JTextField Matricula;
+    private javax.swing.JTextField Nombre;
     private javax.swing.JPanel Panel_Iniciar;
     private javax.swing.JPanel Panel_Iniciar1;
     private javax.swing.JPanel add_tab;
+    private javax.swing.JButton btnSolicitar;
     private javax.swing.JLabel exit_button;
     private javax.swing.JLabel fill_label;
     private javax.swing.JLabel fill_label1;
@@ -662,7 +666,6 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -675,16 +678,10 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel left_panel;
