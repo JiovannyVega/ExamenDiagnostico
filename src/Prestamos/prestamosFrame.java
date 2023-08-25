@@ -1,12 +1,13 @@
-package material;
+package Prestamos;
 
+import material.*;
 import java.awt.Color;
 
-public class materialFrame extends javax.swing.JFrame {
+public class prestamosFrame extends javax.swing.JFrame {
     /**
      * Creates new form materialFrame
      */
-    public materialFrame() {
+    public prestamosFrame() {
         //inicialización de componentes
         initComponents();
         
@@ -52,6 +53,7 @@ public class materialFrame extends javax.swing.JFrame {
         tipo_combobox = new javax.swing.JComboBox<>();
         update_tab = new javax.swing.JPanel();
         search_tab = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Material");
@@ -193,7 +195,7 @@ public class materialFrame extends javax.swing.JFrame {
         tipo_combobox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(tipo_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 135, 25));
 
-        tabbed_pane.addTab("Agregar", add_tab);
+        tabbed_pane.addTab("Prestamos", add_tab);
 
         update_tab.setBackground(new java.awt.Color(255, 255, 255));
         update_tab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -209,7 +211,7 @@ public class materialFrame extends javax.swing.JFrame {
             .addGap(0, 403, Short.MAX_VALUE)
         );
 
-        tabbed_pane.addTab("Actualizar", update_tab);
+        tabbed_pane.addTab("Registrar", update_tab);
 
         search_tab.setBackground(new java.awt.Color(255, 0, 0));
 
@@ -221,10 +223,23 @@ public class materialFrame extends javax.swing.JFrame {
         );
         search_tabLayout.setVerticalGroup(
             search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
+            .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        tabbed_pane.addTab("Consultar", search_tab);
+        tabbed_pane.addTab("Historial", search_tab);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 525, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 402, Short.MAX_VALUE)
+        );
+
+        tabbed_pane.addTab("Activos", jPanel1);
 
         getContentPane().add(tabbed_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 530, 430));
 
@@ -281,20 +296,21 @@ public class materialFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prestamosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prestamosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prestamosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(materialFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prestamosFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new materialFrame().setVisible(true);
+                new prestamosFrame().setVisible(true);
             }
         });
     }
@@ -312,6 +328,7 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
