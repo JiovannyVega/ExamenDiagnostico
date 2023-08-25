@@ -94,7 +94,7 @@ public class Conexion {
         }
     }
     
-    public static void mostrarMaterial(String Nombre, DefaultTableModel modelo) {
+    public static void mostrarMaterial(DefaultTableModel modelo) {
         try {
             Statement st = LogIn.Menu.Login1.con.createStatement();
             ResultSet rs = st.executeQuery("select * from Material");
@@ -105,6 +105,25 @@ public class Conexion {
                 }
                 modelo.addRow(Datos);
             }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public static void actualizarMaterial(String Nombre, String Tipo, String Marca, String Modelo, String Serie, int cantidad, String Ubicacion, String Especificaciones, int id) {
+        try {
+            Statement st = LogIn.Menu.Login1.con.createStatement();
+            PreparedStatement ps = con.prepareStatement("update Material set Nombre = ?, Tipo = ?, Marca = ?, Modelo = ?, Serie = ?, Cantidad = ?, Ubicacion = ?, Especificaciones = ? where (id = " + id + ");");
+            ps.setString(1, Nombre);
+            ps.setString(2, Tipo);
+            ps.setString(3, Marca);
+            ps.setString(4, Modelo);
+            ps.setString(5, Serie);
+            ps.setInt(6, cantidad);
+            ps.setString(7, Ubicacion);
+            ps.setString(8, Especificaciones);
+            ps.executeUpdate();
+            
         } catch (Exception e) {
             System.out.println(e);
         }

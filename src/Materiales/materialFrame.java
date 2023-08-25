@@ -8,7 +8,15 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.plaf.basic.BasicTableUI;
 import javax.swing.table.DefaultTableModel;
 
+import javax.swing.table.TableRowSorter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+
 public class materialFrame extends javax.swing.JFrame {
+
+    private TableRowSorter tabFiltro;
+    String filtro;
 
     int xMouse, yMouse;
     DefaultTableModel modelo = new DefaultTableModel();
@@ -34,7 +42,7 @@ public class materialFrame extends javax.swing.JFrame {
         modelo.addColumn("cantidad");
         modelo.addColumn("Ubicacion");
         modelo.addColumn("Especificaciones");
-        Metodos.Conexion.mostrarMaterial("", modelo);
+        Metodos.Conexion.mostrarMaterial(modelo);
 
     }
 
@@ -306,6 +314,11 @@ public class materialFrame extends javax.swing.JFrame {
         consBusquedaAct.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         consBusquedaAct.setForeground(new java.awt.Color(0, 0, 0));
         consBusquedaAct.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        consBusquedaAct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                consBusquedaActKeyTyped(evt);
+            }
+        });
         update_tab.add(consBusquedaAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 375, 25));
 
         search_material.setBackground(new java.awt.Color(92, 0, 0));
@@ -351,28 +364,7 @@ public class materialFrame extends javax.swing.JFrame {
         tablaActualizar.setBackground(new java.awt.Color(171, 0, 51));
         tablaActualizar.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
         tablaActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        tablaActualizar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID", "NOMBRE", "CANTIDAD", "MARCA", "MODELO", "SERIE", "UBICACION", "ESPECIFICACION", "TIPO"
-            }
-        ));
+        tablaActualizar.setModel(modelo);
         tablaActualizar.setGridColor(new java.awt.Color(188, 149, 92));
         tablaActualizar.setSelectionBackground(new java.awt.Color(92, 0, 0));
         tablaActualizar.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -394,6 +386,11 @@ public class materialFrame extends javax.swing.JFrame {
         consBusquedaAct2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         consBusquedaAct2.setForeground(new java.awt.Color(0, 0, 0));
         consBusquedaAct2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        consBusquedaAct2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                consBusquedaAct2KeyTyped(evt);
+            }
+        });
         search_tab.add(consBusquedaAct2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 375, 25));
 
         search_material2.setBackground(new java.awt.Color(92, 0, 0));
@@ -421,6 +418,7 @@ public class materialFrame extends javax.swing.JFrame {
         tablaConsultar.setForeground(new java.awt.Color(255, 255, 255));
         tablaConsultar.setModel(modelo
         );
+        tablaConsultar.setEnabled(false);
         tablaConsultar.setGridColor(new java.awt.Color(188, 149, 92));
         tablaConsultar.setSelectionBackground(new java.awt.Color(92, 0, 0));
         tablaConsultar.setSelectionForeground(new java.awt.Color(255, 255, 255));
@@ -474,7 +472,16 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_minimize_buttonMouseExited
 
     private void search_materialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseClicked
-        // Método para buscar material
+        Metodos.Conexion.mostrarMaterial(modelo);
+        consBusquedaAct.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = consBusquedaAct.getText();
+                consBusquedaAct.setText(cadena);
+                repaint();
+                filtro2();
+            }
+        });
 
     }//GEN-LAST:event_search_materialMouseClicked
 
@@ -490,7 +497,15 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_search_materialMouseExited
 
     private void update_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseClicked
-        // Método para actualizar los datos del material solicitado
+        Object[] obj = new Object[9];
+        for (int i = 0; i < tablaActualizar.getRowCount(); i++) {
+            for (int j = 0; j < tablaActualizar.getColumnCount(); j++) {
+                obj[j] = tablaActualizar.getValueAt(i, j);
+            }
+            Metodos.Conexion.actualizarMaterial(obj[1].toString(), obj[2].toString(), obj[3].toString(), obj[4].toString(), obj[5].toString(), (Integer)obj[6], obj[7].toString(), obj[8].toString(), (Integer)obj[0]);
+            Metodos.Conexion.mostrarMaterial(modelo);
+            repaint();
+        }
     }//GEN-LAST:event_update_buttonMouseClicked
 
     private void update_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseEntered
@@ -505,7 +520,16 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_update_buttonMouseExited
 
     private void search_material2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseClicked
-        Metodos.Conexion.mostrarMaterial("", modelo);
+        Metodos.Conexion.mostrarMaterial(modelo);
+        consBusquedaAct2.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = consBusquedaAct2.getText();
+                consBusquedaAct2.setText(cadena);
+                repaint();
+                filtro();
+            }
+        });
     }//GEN-LAST:event_search_material2MouseClicked
 
     private void search_material2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseEntered
@@ -573,6 +597,25 @@ public class materialFrame extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_title_barMouseDragged
+
+    private void consBusquedaAct2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consBusquedaAct2KeyTyped
+        tabFiltro = new TableRowSorter(tablaConsultar.getModel());
+        tablaConsultar.setRowSorter(tabFiltro);
+    }//GEN-LAST:event_consBusquedaAct2KeyTyped
+
+    private void consBusquedaActKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consBusquedaActKeyTyped
+        tabFiltro = new TableRowSorter(tablaActualizar.getModel());
+        tablaActualizar.setRowSorter(tabFiltro);
+    }//GEN-LAST:event_consBusquedaActKeyTyped
+
+    public void filtro() {
+        filtro = consBusquedaAct2.getText();
+        tabFiltro.setRowFilter(RowFilter.regexFilter(consBusquedaAct2.getText(), 1));
+    }
+    public void filtro2() {
+        filtro = consBusquedaAct.getText();
+        tabFiltro.setRowFilter(RowFilter.regexFilter(consBusquedaAct.getText(), 1));
+    }
 
     /**
      * @param args the command line arguments
