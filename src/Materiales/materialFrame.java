@@ -48,7 +48,6 @@ public class materialFrame extends javax.swing.JFrame {
         name_label = new javax.swing.JLabel();
         name_tf = new javax.swing.JTextField();
         quantity_label = new javax.swing.JLabel();
-        quantity_tf = new javax.swing.JTextField();
         brand_label = new javax.swing.JLabel();
         brand_tf = new javax.swing.JTextField();
         model_label = new javax.swing.JLabel();
@@ -62,6 +61,7 @@ public class materialFrame extends javax.swing.JFrame {
         type_label = new javax.swing.JLabel();
         type_combobox = new javax.swing.JComboBox<>();
         send_button = new javax.swing.JLabel();
+        cantidad_tf = new javax.swing.JSpinner();
         update_tab = new javax.swing.JPanel();
         consBusquedaAct = new javax.swing.JTextField();
         search_material = new javax.swing.JLabel();
@@ -199,11 +199,6 @@ public class materialFrame extends javax.swing.JFrame {
         quantity_label.setText("Cantidad");
         add_tab.add(quantity_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        quantity_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        quantity_tf.setForeground(new java.awt.Color(188, 149, 92));
-        quantity_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(quantity_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 135, -1));
-
         brand_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         brand_label.setForeground(new java.awt.Color(171, 0, 51));
         brand_label.setText("Marca");
@@ -261,7 +256,7 @@ public class materialFrame extends javax.swing.JFrame {
 
         type_combobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         type_combobox.setForeground(new java.awt.Color(171, 0, 51));
-        type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Opcion 1", "Opcion 2", "Opcion 3" }));
+        type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Cristal", "Metal_Gas", "Polimero", "Porcelana", "Equipo_Electrico", "Material_Imantado", "Seguridad", "Sustancias", "Limpieza", "Consumibles" }));
         type_combobox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
         add_tab.add(type_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 218, 135, 25));
 
@@ -284,6 +279,9 @@ public class materialFrame extends javax.swing.JFrame {
             }
         });
         add_tab.add(send_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 120, 30));
+
+        cantidad_tf.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        add_tab.add(cantidad_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 90, -1));
 
         tabbed_pane.addTab("Agregar", add_tab);
 
@@ -555,7 +553,9 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_return_buttonMouseExited
 
     private void send_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseClicked
-        // Método para enviar material que se desea agregar
+        String Nombre = name_tf.getText(), Tipo = type_combobox.getSelectedItem().toString(), Marca = brand_tf.getText(), Modelo = model_tf.getText(), Serie = series_tf.getText(), Ubicacion = location_tf.getText(), Especificaciones = specs_tf.getText();
+        int Cantidad = (Integer)cantidad_tf.getValue();
+        Metodos.Conexion.registrarMaterial(Nombre, Tipo, Marca, Modelo, Serie, Cantidad, Ubicacion, Especificaciones);
     }//GEN-LAST:event_send_buttonMouseClicked
 
     private void send_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseEntered
@@ -590,6 +590,7 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JPanel add_tab;
     private javax.swing.JLabel brand_label;
     private javax.swing.JTextField brand_tf;
+    private javax.swing.JSpinner cantidad_tf;
     private javax.swing.JTextField consBusquedaAct;
     private javax.swing.JTextField consBusquedaAct2;
     private javax.swing.JLabel exit_button;
@@ -607,7 +608,6 @@ public class materialFrame extends javax.swing.JFrame {
     private javax.swing.JLabel name_label;
     private javax.swing.JTextField name_tf;
     private javax.swing.JLabel quantity_label;
-    private javax.swing.JTextField quantity_tf;
     private javax.swing.JLabel return_button;
     private javax.swing.JLabel search_material;
     private javax.swing.JLabel search_material2;

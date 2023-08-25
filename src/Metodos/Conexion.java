@@ -97,6 +97,27 @@ public class Conexion {
         return true;
     }
     
+    public static void registrarMaterial(String Nombre, String Tipo, String Marca, String Modelo, String Serie, int cantidad, String Ubicacion, String Especificaciones) {
+        try {
+            Statement st = LogIn.Menu.Login1.con.createStatement();
+            PreparedStatement ps = con.prepareStatement("insert into Material values (?,?,?,?,?,?,?,?,?)");
+            ps.setInt(1, 0);
+            ps.setString(2, Nombre);
+            ps.setString(3, Tipo);
+            ps.setString(4, Marca);
+            ps.setString(5, Modelo);
+            ps.setString(6, Serie);
+            ps.setInt(7, cantidad);
+            ps.setString(8, Ubicacion);
+            ps.setString(9, Especificaciones);
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Nuevo material registrado con exito!!");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     public static void crearAlumno(int numeroControl, String nombre, String apellido1, String apellido2, int cp, String calle, int numExt, int numInt, String FN, String sexo, String telefono, String email, Statement st) {
         try {
             ResultSet rs = st.executeQuery("select * from alumno");
