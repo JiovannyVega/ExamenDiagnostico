@@ -73,10 +73,18 @@ public class Conexion {
         }
     }
     
-    public static void registrarPrestamo(String Nombre, String fInicio, String fFin, String Matricula, String idMaterial, int Cantidad) {
+    public static void registrarPrestamo(String Nombre, String fInicio, String Matricula, int idMaterial, int Cantidad) {
         try {
             Statement st = LogIn.Menu.Login1.con.createStatement();
-            PreparedStatement ps = con.prepareStatement("insert into Historial values (?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = con.prepareStatement("insert into Historial values (0, ?, ?, ?, ?, ?, ?, ?)");
+            ps.setString(1, fInicio);
+            ps.setString(2, null);
+            ps.setString(3, Nombre);
+            ps.setString(4, Matricula);
+            ps.setInt(5, idMaterial);
+            ps.setInt(6, Cantidad);
+            ps.setInt(7, 0);
+            ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
         }

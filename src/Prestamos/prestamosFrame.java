@@ -5,18 +5,17 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class prestamosFrame extends javax.swing.JFrame {
+
     /**
      * Creates new form materialFrame
      */
     public prestamosFrame() {
         //inicialización de componentes
         initComponents();
-        
-        
-        
+
         // centra la ventana al medio (850, 450)
         this.setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -561,13 +560,13 @@ public class prestamosFrame extends javax.swing.JFrame {
 
     private void exit_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        exit_button.setBackground(new Color(62,0,0));
+        exit_button.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_exit_buttonMouseEntered
 
     private void exit_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        exit_button.setBackground(new Color(92,0,0));
+        exit_button.setBackground(new Color(92, 0, 0));
     }//GEN-LAST:event_exit_buttonMouseExited
 
     private void minimize_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseClicked
@@ -577,13 +576,13 @@ public class prestamosFrame extends javax.swing.JFrame {
 
     private void minimize_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        minimize_button.setBackground(new Color(62,0,0));
+        minimize_button.setBackground(new Color(62, 0, 0));
     }//GEN-LAST:event_minimize_buttonMouseEntered
 
     private void minimize_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        minimize_button.setBackground(new Color(92,0,0));
+        minimize_button.setBackground(new Color(92, 0, 0));
     }//GEN-LAST:event_minimize_buttonMouseExited
 
     private void Button_Login1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button_Login1MouseClicked
@@ -632,7 +631,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_return_buttonMouseExited
 
     private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
-        // TODO add your handling code here:
+        Metodos.Conexion.registrarPrestamo(Nombre.getText(), Fecha.getText(), Matricula.getText(), 1, (Integer)Cantidad.getValue());
     }//GEN-LAST:event_btnSolicitarActionPerformed
 
     /**

@@ -15,7 +15,8 @@ import javax.swing.RowFilter;
 
 public class materialFrame extends javax.swing.JFrame {
 
-    private TableRowSorter tabFiltro;
+    private TableRowSorter tabFiltroConsul;
+    private TableRowSorter tabFiltroAct;
     String filtro;
 
     int xMouse, yMouse;
@@ -43,7 +44,8 @@ public class materialFrame extends javax.swing.JFrame {
         modelo.addColumn("Ubicacion");
         modelo.addColumn("Especificaciones");
         Metodos.Conexion.mostrarMaterial(modelo);
-
+        tabFiltroConsul = new TableRowSorter(tablaConsultar.getModel());
+        tabFiltroAct = new TableRowSorter(tablaActualizar.getModel());
     }
 
     /**
@@ -314,6 +316,13 @@ public class materialFrame extends javax.swing.JFrame {
         consBusquedaAct.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         consBusquedaAct.setForeground(new java.awt.Color(0, 0, 0));
         consBusquedaAct.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        consBusquedaAct.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                consBusquedaActInputMethodTextChanged(evt);
+            }
+        });
         consBusquedaAct.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 consBusquedaActKeyTyped(evt);
@@ -472,17 +481,20 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_minimize_buttonMouseExited
 
     private void search_materialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseClicked
-        Metodos.Conexion.mostrarMaterial(modelo);
+
         consBusquedaAct.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(final KeyEvent e) {
                 String cadena = consBusquedaAct.getText();
                 consBusquedaAct.setText(cadena);
                 repaint();
-                filtro2();
+                filtroAct();
             }
         });
-
+        String cadena = consBusquedaAct.getText();
+        consBusquedaAct.setText(cadena);
+        repaint();
+        filtroAct();
     }//GEN-LAST:event_search_materialMouseClicked
 
     private void search_materialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseEntered
@@ -501,10 +513,9 @@ public class materialFrame extends javax.swing.JFrame {
         for (int i = 0; i < tablaActualizar.getRowCount(); i++) {
             for (int j = 0; j < tablaActualizar.getColumnCount(); j++) {
                 obj[j] = tablaActualizar.getValueAt(i, j);
+                System.out.println(i + " " + tablaActualizar.getRowCount());
             }
-            Metodos.Conexion.actualizarMaterial(obj[1].toString(), obj[2].toString(), obj[3].toString(), obj[4].toString(), obj[5].toString(), (Integer)obj[6], obj[7].toString(), obj[8].toString(), (Integer)obj[0]);
-            Metodos.Conexion.mostrarMaterial(modelo);
-            repaint();
+            Metodos.Conexion.actualizarMaterial(obj[1].toString(), obj[2].toString(), obj[3].toString(), obj[4].toString(), obj[5].toString(), Integer.parseInt(tablaActualizar.getValueAt(i, 6).toString()), obj[7].toString(), obj[8].toString(), Integer.parseInt(tablaActualizar.getValueAt(i, 0).toString()));
         }
     }//GEN-LAST:event_update_buttonMouseClicked
 
@@ -520,16 +531,20 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_update_buttonMouseExited
 
     private void search_material2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseClicked
-        Metodos.Conexion.mostrarMaterial(modelo);
+        //Metodos.Conexion.mostrarMaterial(modelo);
         consBusquedaAct2.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(final KeyEvent e) {
                 String cadena = consBusquedaAct2.getText();
                 consBusquedaAct2.setText(cadena);
                 repaint();
-                filtro();
+                filtroConsul();
             }
         });
+        String cadena = consBusquedaAct2.getText();
+        consBusquedaAct2.setText(cadena);
+        repaint();
+        filtroConsul();
     }//GEN-LAST:event_search_material2MouseClicked
 
     private void search_material2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseEntered
@@ -599,22 +614,26 @@ public class materialFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_title_barMouseDragged
 
     private void consBusquedaAct2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consBusquedaAct2KeyTyped
-        tabFiltro = new TableRowSorter(tablaConsultar.getModel());
-        tablaConsultar.setRowSorter(tabFiltro);
+
+        tablaConsultar.setRowSorter(tabFiltroConsul);
     }//GEN-LAST:event_consBusquedaAct2KeyTyped
 
     private void consBusquedaActKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_consBusquedaActKeyTyped
-        tabFiltro = new TableRowSorter(tablaActualizar.getModel());
-        tablaActualizar.setRowSorter(tabFiltro);
+        //tabFiltro = new TableRowSorter(tablaActualizar.getModel());
+        tablaActualizar.setRowSorter(tabFiltroAct);
     }//GEN-LAST:event_consBusquedaActKeyTyped
 
-    public void filtro() {
+    private void consBusquedaActInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_consBusquedaActInputMethodTextChanged
+        
+    }//GEN-LAST:event_consBusquedaActInputMethodTextChanged
+
+    public void filtroConsul() {
         filtro = consBusquedaAct2.getText();
-        tabFiltro.setRowFilter(RowFilter.regexFilter(consBusquedaAct2.getText(), 1));
+        tabFiltroConsul.setRowFilter(RowFilter.regexFilter(consBusquedaAct2.getText(), 1));
     }
-    public void filtro2() {
+    public void filtroAct() {
         filtro = consBusquedaAct.getText();
-        tabFiltro.setRowFilter(RowFilter.regexFilter(consBusquedaAct.getText(), 1));
+        tabFiltroAct.setRowFilter(RowFilter.regexFilter(consBusquedaAct.getText(), 1));
     }
 
     /**
