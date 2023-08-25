@@ -1,16 +1,23 @@
 package material;
 
+import com.sun.java.swing.plaf.motif.MotifComboBoxUI;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import javax.swing.plaf.basic.BasicTableUI;
 
 public class materialFrame extends javax.swing.JFrame {
-    /**
-     * Creates new form materialFrame
-     */
+    
+    int xMouse, yMouse;
+    
     public materialFrame() {
         //inicialización de componentes
         initComponents();
         
-        
+        // UI de componentes cambiada
+        type_combobox.setUI(new MotifComboBoxUI());
+        tablaActualizar.setUI(new BasicTableUI());
+        tabbed_pane.setUI(new BasicTabbedPaneUI());
         
         // centra la ventana al medio (850, 450)
         this.setLocationRelativeTo(null);
@@ -26,32 +33,45 @@ public class materialFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        top_panel = new javax.swing.JPanel();
+        title_bar = new javax.swing.JPanel();
         exit_button = new javax.swing.JLabel();
         minimize_button = new javax.swing.JLabel();
+        top_panel = new javax.swing.JPanel();
+        materiales_label = new javax.swing.JLabel();
         left_panel = new javax.swing.JPanel();
-        back_button = new javax.swing.JButton();
+        itsm_label = new javax.swing.JLabel();
+        return_button = new javax.swing.JLabel();
         tabbed_pane = new javax.swing.JTabbedPane();
         add_tab = new javax.swing.JPanel();
         fill_label = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        tipo_combobox = new javax.swing.JComboBox<>();
+        name_label = new javax.swing.JLabel();
+        name_tf = new javax.swing.JTextField();
+        quantity_label = new javax.swing.JLabel();
+        quantity_tf = new javax.swing.JTextField();
+        brand_label = new javax.swing.JLabel();
+        brand_tf = new javax.swing.JTextField();
+        model_label = new javax.swing.JLabel();
+        model_tf = new javax.swing.JTextField();
+        series_label = new javax.swing.JLabel();
+        series_tf = new javax.swing.JTextField();
+        location_label = new javax.swing.JLabel();
+        location_tf = new javax.swing.JTextField();
+        specs_label = new javax.swing.JLabel();
+        specs_tf = new javax.swing.JTextField();
+        type_label = new javax.swing.JLabel();
+        type_combobox = new javax.swing.JComboBox<>();
+        send_button = new javax.swing.JLabel();
         update_tab = new javax.swing.JPanel();
+        consBusquedaAct = new javax.swing.JTextField();
+        search_material = new javax.swing.JLabel();
+        update_button = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaActualizar = new javax.swing.JTable();
         search_tab = new javax.swing.JPanel();
+        consBusquedaAct2 = new javax.swing.JTextField();
+        search_material2 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablaActualizar2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Material");
@@ -59,14 +79,25 @@ public class materialFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        top_panel.setBackground(new java.awt.Color(92, 0, 0));
-        top_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        title_bar.setBackground(new java.awt.Color(62, 0, 0));
+        title_bar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                title_barMouseDragged(evt);
+            }
+        });
+        title_bar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                title_barMousePressed(evt);
+            }
+        });
+        title_bar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        exit_button.setBackground(new java.awt.Color(92, 0, 0));
+        exit_button.setBackground(new java.awt.Color(62, 0, 0));
         exit_button.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
         exit_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exit_button.setText("X");
+        exit_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exit_button.setOpaque(true);
         exit_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -79,13 +110,14 @@ public class materialFrame extends javax.swing.JFrame {
                 exit_buttonMouseExited(evt);
             }
         });
-        top_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 20));
+        title_bar.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 20));
 
-        minimize_button.setBackground(new java.awt.Color(92, 0, 0));
+        minimize_button.setBackground(new java.awt.Color(62, 0, 0));
         minimize_button.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         minimize_button.setForeground(new java.awt.Color(255, 255, 255));
         minimize_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         minimize_button.setText("-");
+        minimize_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimize_button.setOpaque(true);
         minimize_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -98,135 +130,328 @@ public class materialFrame extends javax.swing.JFrame {
                 minimize_buttonMouseExited(evt);
             }
         });
-        top_panel.add(minimize_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 30, 20));
+        title_bar.add(minimize_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 30, 20));
 
-        getContentPane().add(top_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 20));
+        getContentPane().add(title_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 20));
+
+        top_panel.setBackground(new java.awt.Color(92, 0, 0));
+        top_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        materiales_label.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        materiales_label.setForeground(new java.awt.Color(255, 255, 255));
+        materiales_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        materiales_label.setText("Materiales");
+        top_panel.add(materiales_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 530, 60));
+
+        getContentPane().add(top_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 530, 60));
 
         left_panel.setBackground(new java.awt.Color(92, 0, 0));
         left_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        back_button.setText("Regresar");
-        left_panel.add(back_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 348, -1, -1));
+        itsm_label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/itsm.png"))); // NOI18N
+        left_panel.add(itsm_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 150, 320, 150));
+
+        return_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda50x50.png"))); // NOI18N
+        return_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        return_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                return_buttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                return_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                return_buttonMouseExited(evt);
+            }
+        });
+        left_panel.add(return_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 50));
 
         getContentPane().add(left_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 320, 430));
 
         tabbed_pane.setBackground(new java.awt.Color(171, 0, 51));
+        tabbed_pane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(92, 0, 0), 2));
+        tabbed_pane.setForeground(new java.awt.Color(255, 255, 255));
+        tabbed_pane.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         tabbed_pane.setOpaque(true);
 
         add_tab.setBackground(new java.awt.Color(255, 255, 255));
         add_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fill_label.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        fill_label.setForeground(new java.awt.Color(92, 0, 0));
+        fill_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fill_label.setText("Rellena los campos para agregar un material");
-        add_tab.add(fill_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
+        add_tab.add(fill_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 12, 520, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Nombre");
-        add_tab.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        name_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        name_label.setForeground(new java.awt.Color(171, 0, 51));
+        name_label.setText("Nombre");
+        add_tab.add(name_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 135, -1));
+        name_tf.setBackground(new java.awt.Color(255, 255, 255));
+        name_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name_tf.setForeground(new java.awt.Color(188, 149, 92));
+        name_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(name_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 135, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Cantidad");
-        add_tab.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+        quantity_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        quantity_label.setForeground(new java.awt.Color(171, 0, 51));
+        quantity_label.setText("Cantidad");
+        add_tab.add(quantity_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 135, -1));
+        quantity_tf.setBackground(new java.awt.Color(255, 255, 255));
+        quantity_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        quantity_tf.setForeground(new java.awt.Color(188, 149, 92));
+        quantity_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(quantity_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 135, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Marca");
-        add_tab.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
+        brand_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        brand_label.setForeground(new java.awt.Color(171, 0, 51));
+        brand_label.setText("Marca");
+        add_tab.add(brand_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
-        jTextField3.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 135, -1));
+        brand_tf.setBackground(new java.awt.Color(255, 255, 255));
+        brand_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        brand_tf.setForeground(new java.awt.Color(188, 149, 92));
+        brand_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(brand_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 135, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Modelo");
-        add_tab.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        model_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        model_label.setForeground(new java.awt.Color(171, 0, 51));
+        model_label.setText("Modelo");
+        add_tab.add(model_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        jTextField4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 135, -1));
+        model_tf.setBackground(new java.awt.Color(255, 255, 255));
+        model_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        model_tf.setForeground(new java.awt.Color(188, 149, 92));
+        model_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(model_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 135, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Serie");
-        add_tab.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
+        series_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        series_label.setForeground(new java.awt.Color(171, 0, 51));
+        series_label.setText("Serie");
+        add_tab.add(series_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
-        jTextField5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 135, -1));
+        series_tf.setBackground(new java.awt.Color(255, 255, 255));
+        series_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        series_tf.setForeground(new java.awt.Color(188, 149, 92));
+        series_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(series_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 135, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Ubicación");
-        add_tab.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+        location_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        location_label.setForeground(new java.awt.Color(171, 0, 51));
+        location_label.setText("Ubicación");
+        add_tab.add(location_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
 
-        jTextField6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 135, -1));
+        location_tf.setBackground(new java.awt.Color(255, 255, 255));
+        location_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        location_tf.setForeground(new java.awt.Color(188, 149, 92));
+        location_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(location_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 135, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Especificación");
-        add_tab.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        specs_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        specs_label.setForeground(new java.awt.Color(171, 0, 51));
+        specs_label.setText("Especificación");
+        add_tab.add(specs_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        jTextField7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 135, -1));
+        specs_tf.setBackground(new java.awt.Color(255, 255, 255));
+        specs_tf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        specs_tf.setForeground(new java.awt.Color(188, 149, 92));
+        specs_tf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(specs_tf, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 135, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Tipo");
-        add_tab.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+        type_label.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        type_label.setForeground(new java.awt.Color(171, 0, 51));
+        type_label.setText("Tipo");
+        add_tab.add(type_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
 
-        tipo_combobox.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tipo_combobox.setForeground(new java.awt.Color(92, 0, 0));
-        tipo_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Opcion 1", "Opcion 2", "Opcion 3" }));
-        tipo_combobox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
-        add_tab.add(tipo_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 135, 25));
+        type_combobox.setBackground(new java.awt.Color(255, 255, 255));
+        type_combobox.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        type_combobox.setForeground(new java.awt.Color(171, 0, 51));
+        type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Opcion 1", "Opcion 2", "Opcion 3" }));
+        type_combobox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        add_tab.add(type_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 218, 135, 25));
+
+        send_button.setBackground(new java.awt.Color(92, 0, 0));
+        send_button.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        send_button.setForeground(new java.awt.Color(255, 255, 255));
+        send_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        send_button.setText("Enviar");
+        send_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        send_button.setOpaque(true);
+        send_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                send_buttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                send_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                send_buttonMouseExited(evt);
+            }
+        });
+        add_tab.add(send_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 120, 30));
 
         tabbed_pane.addTab("Agregar", add_tab);
 
         update_tab.setBackground(new java.awt.Color(255, 255, 255));
         update_tab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        update_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout update_tabLayout = new javax.swing.GroupLayout(update_tab);
-        update_tab.setLayout(update_tabLayout);
-        update_tabLayout.setHorizontalGroup(
-            update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
-        );
-        update_tabLayout.setVerticalGroup(
-            update_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
-        );
+        consBusquedaAct.setBackground(new java.awt.Color(255, 255, 255));
+        consBusquedaAct.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        consBusquedaAct.setForeground(new java.awt.Color(0, 0, 0));
+        consBusquedaAct.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        update_tab.add(consBusquedaAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 375, 25));
+
+        search_material.setBackground(new java.awt.Color(92, 0, 0));
+        search_material.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        search_material.setForeground(new java.awt.Color(255, 255, 255));
+        search_material.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        search_material.setText("Buscar material");
+        search_material.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        search_material.setOpaque(true);
+        search_material.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                search_materialMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                search_materialMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                search_materialMouseExited(evt);
+            }
+        });
+        update_tab.add(search_material, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 12, 120, 25));
+
+        update_button.setBackground(new java.awt.Color(92, 0, 0));
+        update_button.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        update_button.setForeground(new java.awt.Color(255, 255, 255));
+        update_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        update_button.setText("Actualizar");
+        update_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        update_button.setOpaque(true);
+        update_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                update_buttonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                update_buttonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                update_buttonMouseExited(evt);
+            }
+        });
+        update_tab.add(update_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 120, 30));
+
+        tablaActualizar.setBackground(new java.awt.Color(171, 0, 51));
+        tablaActualizar.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        tablaActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        tablaActualizar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NOMBRE", "CANTIDAD", "MARCA", "MODELO", "SERIE", "UBICACION", "ESPECIFICACION", "TIPO"
+            }
+        ));
+        tablaActualizar.setGridColor(new java.awt.Color(188, 149, 92));
+        tablaActualizar.setSelectionBackground(new java.awt.Color(92, 0, 0));
+        tablaActualizar.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tablaActualizar.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tablaActualizar);
+        if (tablaActualizar.getColumnModel().getColumnCount() > 0) {
+            tablaActualizar.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablaActualizar.getColumnModel().getColumn(1).setPreferredWidth(100);
+        }
+
+        update_tab.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 43, 499, 240));
 
         tabbed_pane.addTab("Actualizar", update_tab);
 
-        search_tab.setBackground(new java.awt.Color(255, 0, 0));
+        search_tab.setBackground(new java.awt.Color(255, 255, 255));
+        search_tab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout search_tabLayout = new javax.swing.GroupLayout(search_tab);
-        search_tab.setLayout(search_tabLayout);
-        search_tabLayout.setHorizontalGroup(
-            search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
-        );
-        search_tabLayout.setVerticalGroup(
-            search_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 403, Short.MAX_VALUE)
-        );
+        consBusquedaAct2.setBackground(new java.awt.Color(255, 255, 255));
+        consBusquedaAct2.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        consBusquedaAct2.setForeground(new java.awt.Color(0, 0, 0));
+        consBusquedaAct2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        search_tab.add(consBusquedaAct2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 375, 25));
+
+        search_material2.setBackground(new java.awt.Color(92, 0, 0));
+        search_material2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        search_material2.setForeground(new java.awt.Color(255, 255, 255));
+        search_material2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        search_material2.setText("Buscar material");
+        search_material2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        search_material2.setOpaque(true);
+        search_material2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                search_material2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                search_material2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                search_material2MouseExited(evt);
+            }
+        });
+        search_tab.add(search_material2, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 12, 120, 25));
+
+        tablaActualizar2.setBackground(new java.awt.Color(171, 0, 51));
+        tablaActualizar2.setFont(new java.awt.Font("Segoe UI Light", 0, 12)); // NOI18N
+        tablaActualizar2.setForeground(new java.awt.Color(255, 255, 255));
+        tablaActualizar2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "NOMBRE", "CANTIDAD", "MARCA", "MODELO", "SERIE", "UBICACION", "ESPECIFICACION", "TIPO"
+            }
+        ));
+        tablaActualizar2.setGridColor(new java.awt.Color(188, 149, 92));
+        tablaActualizar2.setSelectionBackground(new java.awt.Color(92, 0, 0));
+        tablaActualizar2.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tablaActualizar2.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(tablaActualizar2);
+        if (tablaActualizar2.getColumnModel().getColumnCount() > 0) {
+            tablaActualizar2.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablaActualizar2.getColumnModel().getColumn(1).setPreferredWidth(100);
+        }
+
+        search_tab.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 43, 499, 240));
 
         tabbed_pane.addTab("Consultar", search_tab);
 
-        getContentPane().add(tabbed_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 530, 430));
+        getContentPane().add(tabbed_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 530, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -239,13 +464,13 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void exit_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        exit_button.setBackground(new Color(62,0,0));
+        exit_button.setBackground(new Color(32,0,0));
     }//GEN-LAST:event_exit_buttonMouseEntered
 
     private void exit_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exit_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        exit_button.setBackground(new Color(92,0,0));
+        exit_button.setBackground(new Color(62,0,0));
     }//GEN-LAST:event_exit_buttonMouseExited
 
     private void minimize_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseClicked
@@ -255,14 +480,113 @@ public class materialFrame extends javax.swing.JFrame {
 
     private void minimize_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseEntered
         // método que cambia el fondo del botón cuando el usuario pasa el cursor
-        minimize_button.setBackground(new Color(62,0,0));
+        minimize_button.setBackground(new Color(32,0,0));
     }//GEN-LAST:event_minimize_buttonMouseEntered
 
     private void minimize_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseExited
         // método que cambia el fondo del botón cuando el usuario quita el 
         // cursor
-        minimize_button.setBackground(new Color(92,0,0));
+        minimize_button.setBackground(new Color(62,0,0));
     }//GEN-LAST:event_minimize_buttonMouseExited
+
+    private void search_materialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseClicked
+        // Método para buscar material
+        
+    }//GEN-LAST:event_search_materialMouseClicked
+
+    private void search_materialMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseEntered
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
+        search_material.setBackground(new Color(62,0,0));
+    }//GEN-LAST:event_search_materialMouseEntered
+
+    private void search_materialMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_materialMouseExited
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
+        search_material.setBackground(new Color(92,0,0));
+    }//GEN-LAST:event_search_materialMouseExited
+
+    private void update_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseClicked
+        // Método para actualizar los datos del material solicitado
+    }//GEN-LAST:event_update_buttonMouseClicked
+
+    private void update_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseEntered
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
+        update_button.setBackground(new Color(62,0,0));
+    }//GEN-LAST:event_update_buttonMouseEntered
+
+    private void update_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_update_buttonMouseExited
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
+        update_button.setBackground(new Color(92,0,0));
+    }//GEN-LAST:event_update_buttonMouseExited
+
+    private void search_material2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseClicked
+        // Método para buscar material
+        
+    }//GEN-LAST:event_search_material2MouseClicked
+
+    private void search_material2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseEntered
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
+        search_material2.setBackground(new Color(62,0,0));
+    }//GEN-LAST:event_search_material2MouseEntered
+
+    private void search_material2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_material2MouseExited
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
+        search_material2.setBackground(new Color(92,0,0));
+    }//GEN-LAST:event_search_material2MouseExited
+
+    private void return_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseClicked
+        /*
+        * Método para regresar a ventana anterior
+        */
+    }//GEN-LAST:event_return_buttonMouseClicked
+
+    private void return_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseEntered
+        // Método que cambia el icono del label cuando el cursor entra
+        String iconFileName = return_button.getIcon().toString();
+        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/" ) + 1);
+        if("flecha-izquierda50x50.png".equals(fileName)) {
+            return_button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/iflecha-izquierda50x50.png")));
+        }
+    }//GEN-LAST:event_return_buttonMouseEntered
+
+    private void return_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseExited
+        // Método que cambia el icono del label cuando el cursor sale
+        String iconFileName = return_button.getIcon().toString();
+        String fileName = iconFileName.substring(iconFileName.lastIndexOf("/" ) + 1);
+        if("iflecha-izquierda50x50.png".equals(fileName)) {
+            return_button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda50x50.png")));
+        }
+    }//GEN-LAST:event_return_buttonMouseExited
+
+    private void send_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseClicked
+        // Método para enviar material que se desea agregar
+    }//GEN-LAST:event_send_buttonMouseClicked
+
+    private void send_buttonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseEntered
+        // método que cambia el fondo del botón cuando el usuario pasa el cursor
+        send_button.setBackground(new Color(62,0,0));
+    }//GEN-LAST:event_send_buttonMouseEntered
+
+    private void send_buttonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_send_buttonMouseExited
+        // método que cambia el fondo del botón cuando el usuario quita el 
+        // cursor
+        send_button.setBackground(new Color(92,0,0));
+    }//GEN-LAST:event_send_buttonMouseExited
+
+    private void title_barMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_title_barMousePressed
+        // Método para obtener la posición del mouse
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_title_barMousePressed
+
+    private void title_barMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_title_barMouseDragged
+        // Método para poder dar la sensación de arrastrar el frame
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_title_barMouseDragged
 
     /**
      * @param args the command line arguments
@@ -301,30 +625,43 @@ public class materialFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel add_tab;
-    private javax.swing.JButton back_button;
+    private javax.swing.JLabel brand_label;
+    private javax.swing.JTextField brand_tf;
+    private javax.swing.JTextField consBusquedaAct;
+    private javax.swing.JTextField consBusquedaAct2;
     private javax.swing.JLabel exit_button;
     private javax.swing.JLabel fill_label;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JLabel itsm_label;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JPanel left_panel;
+    private javax.swing.JLabel location_label;
+    private javax.swing.JTextField location_tf;
+    private javax.swing.JLabel materiales_label;
     private javax.swing.JLabel minimize_button;
+    private javax.swing.JLabel model_label;
+    private javax.swing.JTextField model_tf;
+    private javax.swing.JLabel name_label;
+    private javax.swing.JTextField name_tf;
+    private javax.swing.JLabel quantity_label;
+    private javax.swing.JTextField quantity_tf;
+    private javax.swing.JLabel return_button;
+    private javax.swing.JLabel search_material;
+    private javax.swing.JLabel search_material2;
     private javax.swing.JPanel search_tab;
+    private javax.swing.JLabel send_button;
+    private javax.swing.JLabel series_label;
+    private javax.swing.JTextField series_tf;
+    private javax.swing.JLabel specs_label;
+    private javax.swing.JTextField specs_tf;
     private javax.swing.JTabbedPane tabbed_pane;
-    private javax.swing.JComboBox<String> tipo_combobox;
+    private javax.swing.JTable tablaActualizar;
+    private javax.swing.JTable tablaActualizar2;
+    private javax.swing.JPanel title_bar;
     private javax.swing.JPanel top_panel;
+    private javax.swing.JComboBox<String> type_combobox;
+    private javax.swing.JLabel type_label;
+    private javax.swing.JLabel update_button;
     private javax.swing.JPanel update_tab;
     // End of variables declaration//GEN-END:variables
 }
