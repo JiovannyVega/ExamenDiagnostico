@@ -18,12 +18,13 @@ public class prestamosFrame extends javax.swing.JFrame {
 
     private Vector<String> Material = new Vector<String>(0);
     private Map<String, Integer> map = new HashMap<String, Integer>(0);
-    
+
     private TableRowSorter tabHistorial;
-    private TableRowSorter tabFiltroAct;
+    private TableRowSorter tabActivos;
     String filtro;
     DefaultTableModel modelo = new DefaultTableModel();
-    
+    DefaultTableModel modeloAct = new DefaultTableModel();
+
     public prestamosFrame() {
         //inicialización de componentes
         initComponents();
@@ -37,14 +38,15 @@ public class prestamosFrame extends javax.swing.JFrame {
         modelo.addColumn("Fecha de regreso");
         modelo.addColumn("Material");
         modelo.addColumn("Cantidad");
-        modelo.addColumn("Devuelto");
         tabHistorial = new TableRowSorter(Historial.getModel());
+        tabActivos = new TableRowSorter(Activos.getModel());
         Metodos.Conexion.mostrarPrestamos(modelo, map);
+        Metodos.Conexion.llenadoMaterial(Material, map);
         cargarSugerencias();
         cargarTipos();
 
     }
-    
+
     public void cargarSugerencias() {
         AutoCompleteDecorator.decorate(comboMaterial);
     }
@@ -52,7 +54,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     public void cargarTipos() {
         comboMaterial.setModel(new DefaultComboBoxModel<>(Material));
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do modify this code. The content of this method is always
@@ -102,7 +104,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         Historial = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jTextField12 = new javax.swing.JTextField();
+        txtActivos = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTextField13 = new javax.swing.JTextField();
@@ -110,7 +112,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        Activos = new javax.swing.JTable();
         materiales_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -435,12 +437,27 @@ public class prestamosFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField12.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField12.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(171, 0, 51));
-        jTextField12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        txtActivos.setBackground(new java.awt.Color(255, 255, 255));
+        txtActivos.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        txtActivos.setForeground(new java.awt.Color(171, 0, 51));
+        txtActivos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        txtActivos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtActivosKeyTyped(evt);
+            }
+        });
 
         jButton3.setText("Buscar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -464,23 +481,9 @@ public class prestamosFrame extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        jTable4.setBackground(new java.awt.Color(255, 255, 255));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Numero de Prestamo", "Matricula", "Nombre", "Fecha de inicio", "Fecha de fin", "Material", "Cantidad"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable4);
+        Activos.setBackground(new java.awt.Color(255, 255, 255));
+        Activos.setModel(modelo);
+        jScrollPane4.setViewportView(Activos);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -520,7 +523,7 @@ public class prestamosFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                .addComponent(txtActivos, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton3)
                 .addGap(23, 23, 23))
@@ -535,7 +538,7 @@ public class prestamosFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12)
+                    .addComponent(txtActivos)
                     .addComponent(jButton3))
                 .addGap(369, 369, 369))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -613,7 +616,6 @@ public class prestamosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void return_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_return_buttonMouseClicked
-
         Log.Menu menu = new Menu();
         menu.setVisible(true);
         this.dispose();
@@ -638,11 +640,10 @@ public class prestamosFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_return_buttonMouseExited
 
     private void btnSolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitarActionPerformed
-        Metodos.Conexion.registrarPrestamo(Nombre.getText(), Fecha.getText(), Matricula.getText(), map.get(comboMaterial.getSelectedItem().toString()), (Integer)Cantidad.getValue());
+        Metodos.Conexion.registrarPrestamo(Nombre.getText(), Fecha.getText(), Matricula.getText(), map.get(comboMaterial.getSelectedItem().toString()), (Integer) Cantidad.getValue());
     }//GEN-LAST:event_btnSolicitarActionPerformed
 
     private void txtHistorialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHistorialKeyTyped
-        
         Historial.setRowSorter(tabHistorial);
     }//GEN-LAST:event_txtHistorialKeyTyped
 
@@ -661,19 +662,45 @@ public class prestamosFrame extends javax.swing.JFrame {
         txtHistorial.setText(cadena);
         repaint();
         filtroConsul();
-        System.out.println("HOLAAAAAA");
     }//GEN-LAST:event_jButton2MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    
+    private void txtActivosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivosKeyTyped
+        Activos.setRowSorter(tabActivos);
+    }//GEN-LAST:event_txtActivosKeyTyped
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        txtActivos.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(final KeyEvent e) {
+                String cadena = txtActivos.getText();
+                txtActivos.setText(cadena);
+                repaint();
+                filtroConsul();
+            }
+        });
+        String cadena = txtActivos.getText();
+        txtActivos.setText(cadena);
+        repaint();
+        filtroActivos();
+    }//GEN-LAST:event_jButton3MouseClicked
+
     public void filtroConsul() {
         filtro = txtHistorial.getText();
         tabHistorial.setRowFilter(RowFilter.regexFilter(txtHistorial.getText(), 1));
     }
+    
+    public void filtroActivos() {
+        filtro = txtActivos.getText();
+        tabActivos.setRowFilter(RowFilter.regexFilter(txtActivos.getText(), 1));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Activos;
     private javax.swing.JLabel Button_Login1;
     private javax.swing.JSpinner Cantidad;
     private javax.swing.JTextField Fecha;
@@ -709,9 +736,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
@@ -722,6 +747,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JPanel search_tab;
     private javax.swing.JTabbedPane tabbed_pane;
     private javax.swing.JPanel top_panel;
+    private javax.swing.JTextField txtActivos;
     private javax.swing.JTextField txtHistorial;
     private javax.swing.JPanel update_tab;
     // End of variables declaration//GEN-END:variables

@@ -144,12 +144,14 @@ public class Conexion {
     }
     public static void mostrarPrestamos(DefaultTableModel modelo, Map<String, Integer> map){
         try {
+            //id, Nombre, Matricula, fInicio, fFin, Material, Cantidad, Devuelto
+            //id, fInicio, fFin, Nombre, Matricula, Material, Cantidad, Devuelto
             Statement st = Log.Login1.con.createStatement();
             Statement st2 = Log.Login1.con.createStatement();
-            ResultSet rs = st.executeQuery("select * from Historial");
-            String [] Datos = new String[8];
+            ResultSet rs = st.executeQuery("select id, Nombre, Matricula, Fecha_I, Fecha_F, id_Material, Cantidad, Devuelto from Historial");
+            String [] Datos = new String[7];
             while (rs.next()) {
-                for (int i = 0; i < 8; i++) {
+                for (int i = 0; i < 7; i++) {
                     Datos[i] = rs.getString(i + 1);
                     System.out.println(Datos[i] + " " + i);
                 }

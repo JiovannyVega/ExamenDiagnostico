@@ -281,6 +281,11 @@ public class materialFrame extends javax.swing.JFrame {
         type_combobox.setForeground(new java.awt.Color(171, 0, 51));
         type_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Cristal", "Metal_Gas", "Polimero", "Porcelana", "Equipo_Electrico", "Material_Imantado", "Seguridad", "Sustancias", "Limpieza", "Consumibles" }));
         type_combobox.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, new java.awt.Color(188, 149, 92)));
+        type_combobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                type_comboboxActionPerformed(evt);
+            }
+        });
         add_tab.add(type_combobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 218, 135, 25));
 
         send_button.setBackground(new java.awt.Color(92, 0, 0));
@@ -626,6 +631,10 @@ public class materialFrame extends javax.swing.JFrame {
     private void consBusquedaActInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_consBusquedaActInputMethodTextChanged
         
     }//GEN-LAST:event_consBusquedaActInputMethodTextChanged
+
+    private void type_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_type_comboboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_type_comboboxActionPerformed
 
     public void filtroConsul() {
         filtro = consBusquedaAct2.getText();
