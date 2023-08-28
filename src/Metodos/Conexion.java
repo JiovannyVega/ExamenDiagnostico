@@ -149,15 +149,16 @@ public class Conexion {
             Statement st = Log.Login1.con.createStatement();
             Statement st2 = Log.Login1.con.createStatement();
             ResultSet rs = st.executeQuery("select id, Nombre, Matricula, Fecha_I, Fecha_F, id_Material, Cantidad, Devuelto from Historial");
-            String [] Datos = new String[7];
+            String [] Datos = new String[8];
             while (rs.next()) {
-                for (int i = 0; i < 7; i++) {
+                for (int i = 0; i < 8; i++) {
                     Datos[i] = rs.getString(i + 1);
                     System.out.println(Datos[i] + " " + i);
                 }
                 ResultSet rs2 = st2.executeQuery("select Nombre from Material where id = " + Datos[5]);
                 rs2.next();
                 Datos[5] = rs2.getString(1);
+                Datos[7] = Datos[7].equals("0") ? "Ausente" : "Presente";
                 modelo.addRow(Datos);
             }
         } catch (Exception e) {

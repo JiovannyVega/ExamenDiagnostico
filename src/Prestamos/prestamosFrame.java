@@ -31,6 +31,14 @@ public class prestamosFrame extends javax.swing.JFrame {
 
         // centra la ventana al medio (850, 450)
         this.setLocationRelativeTo(null);
+        llenadoTablas();
+        Metodos.Conexion.llenadoMaterial(Material, map);
+        cargarSugerencias();
+        cargarTipos();
+
+    }
+    
+    public void llenadoTablas() {
         modelo.addColumn("id prestamo");
         modelo.addColumn("Nombre");
         modelo.addColumn("Matricula");
@@ -38,13 +46,10 @@ public class prestamosFrame extends javax.swing.JFrame {
         modelo.addColumn("Fecha de regreso");
         modelo.addColumn("Material");
         modelo.addColumn("Cantidad");
+        modelo.addColumn("Devuelto");
         tabHistorial = new TableRowSorter(Historial.getModel());
         tabActivos = new TableRowSorter(Activos.getModel());
         Metodos.Conexion.mostrarPrestamos(modelo, map);
-        Metodos.Conexion.llenadoMaterial(Material, map);
-        cargarSugerencias();
-        cargarTipos();
-
     }
 
     public void cargarSugerencias() {
@@ -109,8 +114,6 @@ public class prestamosFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jTextField13 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         Activos = new javax.swing.JTable();
         materiales_label = new javax.swing.JLabel();
@@ -429,7 +432,7 @@ public class prestamosFrame extends javax.swing.JFrame {
                             .addComponent(jButton2)))
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -467,20 +470,6 @@ public class prestamosFrame extends javax.swing.JFrame {
 
         jButton4.setText("Buscar");
 
-        jTable3.setBackground(new java.awt.Color(255, 255, 255));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Presente", "Ausente"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
         Activos.setBackground(new java.awt.Color(255, 255, 255));
         Activos.setModel(modelo);
         jScrollPane4.setViewportView(Activos);
@@ -492,16 +481,14 @@ public class prestamosFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                         .addGap(27, 27, 27)
                         .addComponent(jButton4)
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(23, 23, 23))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,10 +498,8 @@ public class prestamosFrame extends javax.swing.JFrame {
                     .addComponent(jTextField13)
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(7, 7, 7))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -680,7 +665,7 @@ public class prestamosFrame extends javax.swing.JFrame {
                 String cadena = txtActivos.getText();
                 txtActivos.setText(cadena);
                 repaint();
-                filtroConsul();
+                filtroActivos();
             }
         });
         String cadena = txtActivos.getText();
@@ -733,9 +718,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField8;
