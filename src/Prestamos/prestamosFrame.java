@@ -62,6 +62,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        materiales_label = new javax.swing.JLabel();
         top_panel = new javax.swing.JPanel();
         exit_button = new javax.swing.JLabel();
         minimize_button = new javax.swing.JLabel();
@@ -111,7 +112,14 @@ public class prestamosFrame extends javax.swing.JFrame {
         jTable3 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        materiales_label = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        materiales_label1 = new javax.swing.JLabel();
+
+        materiales_label.setBackground(new java.awt.Color(92, 0, 0));
+        materiales_label.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        materiales_label.setForeground(new java.awt.Color(255, 255, 255));
+        materiales_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        materiales_label.setText("Prestamos");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ventana Material");
@@ -123,7 +131,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         top_panel.setBackground(new java.awt.Color(62, 0, 0));
         top_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        exit_button.setBackground(new java.awt.Color(92, 0, 0));
+        exit_button.setBackground(new java.awt.Color(62, 0, 0));
         exit_button.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         exit_button.setForeground(new java.awt.Color(255, 255, 255));
         exit_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -142,7 +150,7 @@ public class prestamosFrame extends javax.swing.JFrame {
         });
         top_panel.add(exit_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 20));
 
-        minimize_button.setBackground(new java.awt.Color(92, 0, 0));
+        minimize_button.setBackground(new java.awt.Color(62, 0, 0));
         minimize_button.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         minimize_button.setForeground(new java.awt.Color(255, 255, 255));
         minimize_button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,7 +226,9 @@ public class prestamosFrame extends javax.swing.JFrame {
         getContentPane().add(left_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 320, 430));
 
         tabbed_pane.setBackground(new java.awt.Color(171, 0, 51));
-        tabbed_pane.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tabbed_pane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tabbed_pane.setForeground(new java.awt.Color(255, 255, 255));
+        tabbed_pane.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
         tabbed_pane.setOpaque(true);
 
         add_tab.setBackground(new java.awt.Color(255, 255, 255));
@@ -330,7 +340,7 @@ public class prestamosFrame extends javax.swing.JFrame {
                                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel11)
                                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 246, Short.MAX_VALUE))
+                                .addGap(0, 254, Short.MAX_VALUE))
                             .addGroup(update_tabLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -359,7 +369,7 @@ public class prestamosFrame extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(0, 0, 0)
                 .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         tabbed_pane.addTab("Registrar", update_tab);
@@ -427,7 +437,7 @@ public class prestamosFrame extends javax.swing.JFrame {
                             .addComponent(jButton2)))
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -549,12 +559,30 @@ public class prestamosFrame extends javax.swing.JFrame {
 
         getContentPane().add(tabbed_pane, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 530, 370));
 
-        materiales_label.setBackground(new java.awt.Color(92, 0, 0));
-        materiales_label.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        materiales_label.setForeground(new java.awt.Color(255, 255, 255));
-        materiales_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        materiales_label.setText("Prestamos");
-        getContentPane().add(materiales_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 20, 540, -1));
+        jPanel3.setBackground(new java.awt.Color(92, 0, 0));
+
+        materiales_label1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        materiales_label1.setForeground(new java.awt.Color(255, 255, 255));
+        materiales_label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        materiales_label1.setText("Prestamos");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(materiales_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(materiales_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 530, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -705,6 +733,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -717,6 +746,7 @@ public class prestamosFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JPanel left_panel;
     private javax.swing.JLabel materiales_label;
+    private javax.swing.JLabel materiales_label1;
     private javax.swing.JLabel minimize_button;
     private javax.swing.JLabel return_button;
     private javax.swing.JPanel search_tab;
